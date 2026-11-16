@@ -1,0 +1,29 @@
+{
+  "config": "alltools",
+  "split": "dev",
+  "model": "mistral-medium-latest",
+  "cfg": {
+    "tools": [
+      "search_dense",
+      "search_bm25",
+      "search_hybrid"
+    ],
+    "top_k": 5,
+    "budget": 3500,
+    "max_tool_calls": 4,
+    "max_turns": 10
+  },
+  "n": 17,
+  "status_counts": {
+    "answered": 13,
+    "abstain": 4,
+    "error": 0
+  },
+  "usage": {
+    "prompt_tokens": 76335,
+    "completion_tokens": 3952,
+    "total_tokens": 80287,
+    "calls": 62
+  },
+  "cost_usd": 0.038438
+}

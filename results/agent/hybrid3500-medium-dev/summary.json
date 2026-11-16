@@ -1,0 +1,27 @@
+{
+  "config": "hybrid3500",
+  "split": "dev",
+  "model": "mistral-medium-latest",
+  "cfg": {
+    "tools": [
+      "search_hybrid"
+    ],
+    "top_k": 3,
+    "budget": 3500,
+    "max_tool_calls": 2,
+    "max_turns": 6
+  },
+  "n": 17,
+  "status_counts": {
+    "answered": 15,
+    "abstain": 2,
+    "error": 0
+  },
+  "usage": {
+    "prompt_tokens": 45249,
+    "completion_tokens": 3958,
+    "total_tokens": 49207,
+    "calls": 56
+  },
+  "cost_usd": 0.026016
+}

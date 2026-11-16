@@ -1,0 +1,16 @@
+{
+  "method": "bm25",
+  "split": "dev",
+  "top_k": 3,
+  "budget_chars": 2000,
+  "n_answerable": 15,
+  "hit1": "11/15",
+  "hit1_rate": 0.7333,
+  "evidence_hit3": "14/15",
+  "evidence_hit3_rate": 0.9333,
+  "context_evidence_rate": "13/15",
+  "context_evidence_rate_pct": 0.8667,
+  "avg_context_chars": 1438,
+  "median_ms": 4.2,
+  "service_cost_usd": 0.0
+}

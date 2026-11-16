@@ -1,0 +1,27 @@
+{
+  "config": "dense800",
+  "split": "test",
+  "model": "mistral-small-latest",
+  "cfg": {
+    "tools": [
+      "search_dense"
+    ],
+    "top_k": 3,
+    "budget": 800,
+    "max_tool_calls": 2,
+    "max_turns": 6
+  },
+  "n": 7,
+  "status_counts": {
+    "answered": 2,
+    "abstain": 4,
+    "error": 1
+  },
+  "usage": {
+    "prompt_tokens": 10194,
+    "completion_tokens": 673,
+    "total_tokens": 10867,
+    "calls": 24
+  },
+  "cost_usd": 0.001221
+}

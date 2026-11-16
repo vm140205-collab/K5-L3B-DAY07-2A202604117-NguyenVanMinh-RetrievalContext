@@ -1,0 +1,985 @@
+[
+  {
+    "status": "answered",
+    "answer": "The two meta-algorithms proposed are pessimistic empirical risk minimization (PERM) and pessimistic proximal policy optimization (PPPO) [171cf669fe6e1890ca0b].",
+    "citations": [
+      "171cf669fe6e1890ca0b"
+    ],
+    "events": [
+      {
+        "event": "search",
+        "tool": "search_dense",
+        "query": "meta-algorithms zero-shot generalization offline reinforcement learning",
+        "top_k": 3,
+        "results": [
+          {
+            "id": "171cf669fe6e1890ca0b",
+            "source_id": "2503.07988v1",
+            "page": 1,
+            "score": 0.890059,
+            "text": "Provable Zero-Shot Generalization in Offline Reinforcement\n\nLearning\n\nZhiyong Wang ∗Chen Yang † John C.S. Lui ‡ Dongruo Zhou §\n\nAbstract\n\nIn this work, we study offline reinforcement learning (RL) with zero-shot generalization\nproperty (ZSG), where the agent has access to an offline dataset including experiences from\ndifferent environments, and the goal of the agent is to train a policy over the training environments\nwhich performs well on test environments without further interaction. Existing work showed\nthat classical offline RL fails to generalize to new, unseen environments. We propose pessimistic\nempirical risk minimization (PERM) and pessimistic proximal policy optimization (PPPO),\nwhich leverage pessimistic policy evaluation to guide policy learning and enhance generalization.\nWe show that both PERM and PPPO are capable of finding a near-optimal policy with ZSG. Our\n\nresult serves as a first step in understanding the foundation of the generalization phenomenon in\noffline reinforcement learning."
+          },
+          {
+            "id": "ecba1f4c9f0ddf8d8e70",
+            "source_id": "2503.07988v1",
+            "page": 13,
+            "score": 0.885735,
+            "text": "7\nConclusion and Future Work\n\nIn this work, we study the zero-shot generalization (ZSG) performance of offline reinforcement\nlearning (RL). We propose two offline RL frameworks, pessimistic empirical risk minimization and\npessimistic proximal policy optimization, and show that both of them can find the optimal policy\nwith ZSG ability. We also show that such a generalization property does not hold for offline RL\nwithout knowing the context information of the environment, which demonstrates the necessity of\nour proposed new algorithms. Currently, our theorems and algorithm design depend on the i.i.d.\nassumption of the environment selection. How to relax such an assumption remains an interesting\nfuture direction.\n\nAppendix\n\nWe provide missing proofs and theoretical results of our paper in the Appendix sections:\n\n• In Appendix A, we provide the missing results of Section 4.\nWe first provide the proof of\nProposition 4.1, then we analyze the suboptimality gap of the Pessimistic Value Iteration (PEVI)\n(Jin et al. [2021]) in the contextual linear MDP setting without context information."
+          },
+          {
+            "id": "f2337a43486e583edb89",
+            "source_id": "2503.07988v1",
+            "page": 1,
+            "score": 0.8759,
+            "text": "1\nIntroduction\n\nOffline reinforcement learning (RL) has become increasingly significant in modern RL because\nit eliminates the need for direct interaction between the agent and the environment; instead, it\nrelies solely on learning from an offline training dataset. However, in practical applications, the\noffline training dataset often originates from a different environment than the one of interest.\nThis discrepancy necessitates evaluating RL agents in a generalization setting, where the training\ninvolves a finite number of environments drawn from a specific distribution, and the testing is\nconducted on a distinct set of environments from the same or different distribution. This scenario is\ncommonly referred to as the zero-shot generalization (ZSG) challenge which has been studied in\nonline RL[Rajeswaran et al., 2017, Machado et al., 2018, Justesen et al., 2018, Packer et al., 2019,\nZhang et al., 2018a,b], as the agent receives no training data from the environments it is tested on."
+          }
+        ],
+        "new_ids": [
+          "171cf669fe6e1890ca0b",
+          "ecba1f4c9f0ddf8d8e70",
+          "f2337a43486e583edb89"
+        ],
+        "search_ms": 69.7
+      },
+      {
+        "event": "search",
+        "tool": "search_dense",
+        "query": "PERM PPPO meta-algorithms zero-shot generalization offline reinforcement learning",
+        "top_k": 3,
+        "results": [
+          {
+            "id": "171cf669fe6e1890ca0b",
+            "source_id": "2503.07988v1",
+            "page": 1,
+            "score": 0.905402,
+            "text": "Provable Zero-Shot Generalization in Offline Reinforcement\n\nLearning\n\nZhiyong Wang ∗Chen Yang † John C.S. Lui ‡ Dongruo Zhou §\n\nAbstract\n\nIn this work, we study offline reinforcement learning (RL) with zero-shot generalization\nproperty (ZSG), where the agent has access to an offline dataset including experiences from\ndifferent environments, and the goal of the agent is to train a policy over the training environments\nwhich performs well on test environments without further interaction. Existing work showed\nthat classical offline RL fails to generalize to new, unseen environments. We propose pessimistic\nempirical risk minimization (PERM) and pessimistic proximal policy optimization (PPPO),\nwhich leverage pessimistic policy evaluation to guide policy learning and enhance generalization.\nWe show that both PERM and PPPO are capable of finding a near-optimal policy with ZSG. Our\n\nresult serves as a first step in understanding the foundation of the generalization phenomenon in\noffline reinforcement learning."
+          },
+          {
+            "id": "ecba1f4c9f0ddf8d8e70",
+            "source_id": "2503.07988v1",
+            "page": 13,
+            "score": 0.867959,
+            "text": "7\nConclusion and Future Work\n\nIn this work, we study the zero-shot generalization (ZSG) performance of offline reinforcement\nlearning (RL). We propose two offline RL frameworks, pessimistic empirical risk minimization and\npessimistic proximal policy optimization, and show that both of them can find the optimal policy\nwith ZSG ability. We also show that such a generalization property does not hold for offline RL\nwithout knowing the context information of the environment, which demonstrates the necessity of\nour proposed new algorithms. Currently, our theorems and algorithm design depend on the i.i.d.\nassumption of the environment selection. How to relax such an assumption remains an interesting\nfuture direction.\n\nAppendix\n\nWe provide missing proofs and theoretical results of our paper in the Appendix sections:\n\n• In Appendix A, we provide the missing results of Section 4.\nWe first provide the proof of\nProposition 4.1, then we analyze the suboptimality gap of the Pessimistic Value Iteration (PEVI)\n(Jin et al. [2021]) in the contextual linear MDP setting without context information."
+          },
+          {
+            "id": "f2337a43486e583edb89",
+            "source_id": "2503.07988v1",
+            "page": 1,
+            "score": 0.849872,
+            "text": "1\nIntroduction\n\nOffline reinforcement learning (RL) has become increasingly significant in modern RL because\nit eliminates the need for direct interaction between the agent and the environment; instead, it\nrelies solely on learning from an offline training dataset. However, in practical applications, the\noffline training dataset often originates from a different environment than the one of interest.\nThis discrepancy necessitates evaluating RL agents in a generalization setting, where the training\ninvolves a finite number of environments drawn from a specific distribution, and the testing is\nconducted on a distinct set of environments from the same or different distribution. This scenario is\ncommonly referred to as the zero-shot generalization (ZSG) challenge which has been studied in\nonline RL[Rajeswaran et al., 2017, Machado et al., 2018, Justesen et al., 2018, Packer et al., 2019,\nZhang et al., 2018a,b], as the agent receives no training data from the environments it is tested on."
+          }
+        ],
+        "new_ids": [],
+        "search_ms": 85.6
+      },
+      {
+        "event": "search_limit"
+      },
+      {
+        "event": "final_answer",
+        "enough_evidence": true,
+        "citations": [
+          "171cf669fe6e1890ca0b"
+        ],
+        "valid": true,
+        "n_retrieved": 3
+      }
+    ],
+    "n_tool_calls": 2,
+    "searches": [
+      {
+        "event": "search",
+        "tool": "search_dense",
+        "query": "meta-algorithms zero-shot generalization offline reinforcement learning",
+        "top_k": 3,
+        "results": [
+          {
+            "id": "171cf669fe6e1890ca0b",
+            "source_id": "2503.07988v1",
+            "page": 1,
+            "score": 0.890059,
+            "text": "Provable Zero-Shot Generalization in Offline Reinforcement\n\nLearning\n\nZhiyong Wang ∗Chen Yang † John C.S. Lui ‡ Dongruo Zhou §\n\nAbstract\n\nIn this work, we study offline reinforcement learning (RL) with zero-shot generalization\nproperty (ZSG), where the agent has access to an offline dataset including experiences from\ndifferent environments, and the goal of the agent is to train a policy over the training environments\nwhich performs well on test environments without further interaction. Existing work showed\nthat classical offline RL fails to generalize to new, unseen environments. We propose pessimistic\nempirical risk minimization (PERM) and pessimistic proximal policy optimization (PPPO),\nwhich leverage pessimistic policy evaluation to guide policy learning and enhance generalization.\nWe show that both PERM and PPPO are capable of finding a near-optimal policy with ZSG. Our\n\nresult serves as a first step in understanding the foundation of the generalization phenomenon in\noffline reinforcement learning."
+          },
+          {
+            "id": "ecba1f4c9f0ddf8d8e70",
+            "source_id": "2503.07988v1",
+            "page": 13,
+            "score": 0.885735,
+            "text": "7\nConclusion and Future Work\n\nIn this work, we study the zero-shot generalization (ZSG) performance of offline reinforcement\nlearning (RL). We propose two offline RL frameworks, pessimistic empirical risk minimization and\npessimistic proximal policy optimization, and show that both of them can find the optimal policy\nwith ZSG ability. We also show that such a generalization property does not hold for offline RL\nwithout knowing the context information of the environment, which demonstrates the necessity of\nour proposed new algorithms. Currently, our theorems and algorithm design depend on the i.i.d.\nassumption of the environment selection. How to relax such an assumption remains an interesting\nfuture direction.\n\nAppendix\n\nWe provide missing proofs and theoretical results of our paper in the Appendix sections:\n\n• In Appendix A, we provide the missing results of Section 4.\nWe first provide the proof of\nProposition 4.1, then we analyze the suboptimality gap of the Pessimistic Value Iteration (PEVI)\n(Jin et al. [2021]) in the contextual linear MDP setting without context information."
+          },
+          {
+            "id": "f2337a43486e583edb89",
+            "source_id": "2503.07988v1",
+            "page": 1,
+            "score": 0.8759,
+            "text": "1\nIntroduction\n\nOffline reinforcement learning (RL) has become increasingly significant in modern RL because\nit eliminates the need for direct interaction between the agent and the environment; instead, it\nrelies solely on learning from an offline training dataset. However, in practical applications, the\noffline training dataset often originates from a different environment than the one of interest.\nThis discrepancy necessitates evaluating RL agents in a generalization setting, where the training\ninvolves a finite number of environments drawn from a specific distribution, and the testing is\nconducted on a distinct set of environments from the same or different distribution. This scenario is\ncommonly referred to as the zero-shot generalization (ZSG) challenge which has been studied in\nonline RL[Rajeswaran et al., 2017, Machado et al., 2018, Justesen et al., 2018, Packer et al., 2019,\nZhang et al., 2018a,b], as the agent receives no training data from the environments it is tested on."
+          }
+        ],
+        "new_ids": [
+          "171cf669fe6e1890ca0b",
+          "ecba1f4c9f0ddf8d8e70",
+          "f2337a43486e583edb89"
+        ],
+        "search_ms": 69.7
+      },
+      {
+        "event": "search",
+        "tool": "search_dense",
+        "query": "PERM PPPO meta-algorithms zero-shot generalization offline reinforcement learning",
+        "top_k": 3,
+        "results": [
+          {
+            "id": "171cf669fe6e1890ca0b",
+            "source_id": "2503.07988v1",
+            "page": 1,
+            "score": 0.905402,
+            "text": "Provable Zero-Shot Generalization in Offline Reinforcement\n\nLearning\n\nZhiyong Wang ∗Chen Yang † John C.S. Lui ‡ Dongruo Zhou §\n\nAbstract\n\nIn this work, we study offline reinforcement learning (RL) with zero-shot generalization\nproperty (ZSG), where the agent has access to an offline dataset including experiences from\ndifferent environments, and the goal of the agent is to train a policy over the training environments\nwhich performs well on test environments without further interaction. Existing work showed\nthat classical offline RL fails to generalize to new, unseen environments. We propose pessimistic\nempirical risk minimization (PERM) and pessimistic proximal policy optimization (PPPO),\nwhich leverage pessimistic policy evaluation to guide policy learning and enhance generalization.\nWe show that both PERM and PPPO are capable of finding a near-optimal policy with ZSG. Our\n\nresult serves as a first step in understanding the foundation of the generalization phenomenon in\noffline reinforcement learning."
+          },
+          {
+            "id": "ecba1f4c9f0ddf8d8e70",
+            "source_id": "2503.07988v1",
+            "page": 13,
+            "score": 0.867959,
+            "text": "7\nConclusion and Future Work\n\nIn this work, we study the zero-shot generalization (ZSG) performance of offline reinforcement\nlearning (RL). We propose two offline RL frameworks, pessimistic empirical risk minimization and\npessimistic proximal policy optimization, and show that both of them can find the optimal policy\nwith ZSG ability. We also show that such a generalization property does not hold for offline RL\nwithout knowing the context information of the environment, which demonstrates the necessity of\nour proposed new algorithms. Currently, our theorems and algorithm design depend on the i.i.d.\nassumption of the environment selection. How to relax such an assumption remains an interesting\nfuture direction.\n\nAppendix\n\nWe provide missing proofs and theoretical results of our paper in the Appendix sections:\n\n• In Appendix A, we provide the missing results of Section 4.\nWe first provide the proof of\nProposition 4.1, then we analyze the suboptimality gap of the Pessimistic Value Iteration (PEVI)\n(Jin et al. [2021]) in the contextual linear MDP setting without context information."
+          },
+          {
+            "id": "f2337a43486e583edb89",
+            "source_id": "2503.07988v1",
+            "page": 1,
+            "score": 0.849872,
+            "text": "1\nIntroduction\n\nOffline reinforcement learning (RL) has become increasingly significant in modern RL because\nit eliminates the need for direct interaction between the agent and the environment; instead, it\nrelies solely on learning from an offline training dataset. However, in practical applications, the\noffline training dataset often originates from a different environment than the one of interest.\nThis discrepancy necessitates evaluating RL agents in a generalization setting, where the training\ninvolves a finite number of environments drawn from a specific distribution, and the testing is\nconducted on a distinct set of environments from the same or different distribution. This scenario is\ncommonly referred to as the zero-shot generalization (ZSG) challenge which has been studied in\nonline RL[Rajeswaran et al., 2017, Machado et al., 2018, Justesen et al., 2018, Packer et al., 2019,\nZhang et al., 2018a,b], as the agent receives no training data from the environments it is tested on."
+          }
+        ],
+        "new_ids": [],
+        "search_ms": 85.6
+      }
+    ],
+    "retrieved_ids": [
+      "171cf669fe6e1890ca0b",
+      "ecba1f4c9f0ddf8d8e70",
+      "f2337a43486e583edb89"
+    ],
+    "context_ids": [
+      "171cf669fe6e1890ca0b",
+      "ecba1f4c9f0ddf8d8e70",
+      "f2337a43486e583edb89"
+    ],
+    "elapsed_ms": 55838.4,
+    "query_id": "q16",
+    "question": "Which two meta-algorithms are proposed to obtain zero-shot generalization in offline reinforcement learning?",
+    "answerable": true,
+    "expected_answer": "Pessimistic empirical risk minimization (PERM) and pessimistic proximal policy optimization (PPPO).",
+    "gold": [
+      {
+        "source_id": "2503.07988v1",
+        "page": 1,
+        "evidence": "We propose pessimistic empirical risk minimization (PERM) and pessimistic proximal policy optimization (PPPO), which leverage pessimistic policy evaluation to guide policy learning and enhance generalization."
+      }
+    ],
+    "usage_delta": {
+      "prompt_tokens": 1615,
+      "completion_tokens": 154,
+      "total_tokens": 1769,
+      "calls": 4
+    }
+  },
+  {
+    "status": "answered",
+    "answer": "The acronym UCRL-M expands to **Upper Confidence Reinforcement Learning with several Modules** [4f41f102f0d1c50cfe6a].",
+    "citations": [
+      "4f41f102f0d1c50cfe6a"
+    ],
+    "events": [
+      {
+        "event": "search",
+        "tool": "search_dense",
+        "query": "UCRL-M acronym expansion",
+        "top_k": 3,
+        "results": [
+          {
+            "id": "4f41f102f0d1c50cfe6a",
+            "source_id": "2308.02391v1",
+            "page": 12,
+            "score": 0.698062,
+            "text": "4.3 UCRL-M: learning with τmix modules\n\nAlgorithm UCRL-M (Upper Confidence Reinforcement Learning with several Modules)\nis given in Algorithm 1. First, the algorithm initializes the different modules. Here, for\neach episode k and module m, it computes the empirical estimates of the reward and\nprobability transition as in (15) and (14). Then, it applies Extended Value Iteration\n(EVI) (Appendix B) to find a policy ̃πk and an optimistic MDP ̃\nMk ∈Mk according\nto (12). Finally, to explore the MDP at episode k, it first iterates on the MDP over\nτmix time-steps and discards these samples (ramping phase) to start the observations\nfrom the stationary distribution of the current policy. This phase is necessary to\nguarantee that observations within a module are nearly independent. Afterward, UCRLM explores the true MDP with the optimistic policy ̃πk and updates the empirical\nestimates with its observations.\n\nThe episode ends when the stopping criterion (18) is met. The next optimistic\npolicy for the episode k + 1 is found with respect to the observations inducing the\nconfidence region Mk that is built using all modules (see (17)).\n\nAlgorithm 1: The UCRL-M algorithm.\n\nInput: S and A."
+          },
+          {
+            "id": "e5c6afbf99e513cfce12",
+            "source_id": "2308.02391v1",
+            "page": 14,
+            "score": 0.674802,
+            "text": "4.5 Time complexity of UCRL-M\n\nProposition 1. The time complexity of UCRL-M is O(KSτmix + Ktevi + T), where\n\nK is the number of episodes and tevi the time complexity of extended value iteration.\nFurthermore, E(K) = O(log T).\n\nProof. The time complexity of lines 5 and 6 is O(KSτmix). The complexity of line\n7 is O(Ktevi). The complexity of line 8 is O(Kτmix). The complexity of line 9 is\nO(T −Kτmix), the number of useful observations. As for the expected number of\nepisodes, EK = O(log T) because of the doubling trick used to end the episodes (see\n[5] for example).\n\nNote that the total number of useful samples (excluding the steps made during the\nramping phases ) is T −Kτmix, and each module uses T −Kτmix\n\nτmix\nsamples. As for the\ntime complexity of EVI, each iteration of EVI is O(S3) and the number of iterations\ndepends on the starting point and is more difficult to estimate. In total, the time\ncomplexity does not really depend on τmix or tevi that only appears at the beginning\nof each episode, and the number of episodes is small w.r.t. T.\n\n5 Regret of UCRL-M"
+          },
+          {
+            "id": "aa4d0711b347fd948fa0",
+            "source_id": "2308.02391v1",
+            "page": 18,
+            "score": 0.649191,
+            "text": "7.2 Regret of UCRL-M on the multi-tier queueing network\n\nWe provide the performance of UCRL-M over the queueing network described above\nwhen the number of queues per tier n and the total number of jobs S vary. In Figure 4,\nwe display the average regret over 66 runs of the UCRL-M algorithm when n varies,\nand with parameters scaling with n to keep the systems proportionally comparable.\nMore precisely, the scaling in S and μ is such that as the number of queues increases,\nthe waiting time in each tier remains roughly identical for a job in each tier, and the\nscaling in the holding cost is also consistent with the increase of the number of jobs in\nthe system. Notice that for our choice of parameters, the network is not stable, so that\nwe use the UCRL-M algorithm under more general conditions than those assumed in\nSection 6 and even in Section 2.\n\n18"
+          }
+        ],
+        "new_ids": [
+          "4f41f102f0d1c50cfe6a",
+          "e5c6afbf99e513cfce12",
+          "aa4d0711b347fd948fa0"
+        ],
+        "search_ms": 80.4
+      },
+      {
+        "event": "search_done",
+        "content": "The acronym **UCRL-M** expands to **Upper Confidence Reinforcement Learning with several Modules** [4f41f102f0d1c50cfe6a]."
+      },
+      {
+        "event": "final_answer",
+        "enough_evidence": true,
+        "citations": [
+          "4f41f102f0d1c50cfe6a"
+        ],
+        "valid": true,
+        "n_retrieved": 3
+      }
+    ],
+    "n_tool_calls": 1,
+    "searches": [
+      {
+        "event": "search",
+        "tool": "search_dense",
+        "query": "UCRL-M acronym expansion",
+        "top_k": 3,
+        "results": [
+          {
+            "id": "4f41f102f0d1c50cfe6a",
+            "source_id": "2308.02391v1",
+            "page": 12,
+            "score": 0.698062,
+            "text": "4.3 UCRL-M: learning with τmix modules\n\nAlgorithm UCRL-M (Upper Confidence Reinforcement Learning with several Modules)\nis given in Algorithm 1. First, the algorithm initializes the different modules. Here, for\neach episode k and module m, it computes the empirical estimates of the reward and\nprobability transition as in (15) and (14). Then, it applies Extended Value Iteration\n(EVI) (Appendix B) to find a policy ̃πk and an optimistic MDP ̃\nMk ∈Mk according\nto (12). Finally, to explore the MDP at episode k, it first iterates on the MDP over\nτmix time-steps and discards these samples (ramping phase) to start the observations\nfrom the stationary distribution of the current policy. This phase is necessary to\nguarantee that observations within a module are nearly independent. Afterward, UCRLM explores the true MDP with the optimistic policy ̃πk and updates the empirical\nestimates with its observations.\n\nThe episode ends when the stopping criterion (18) is met. The next optimistic\npolicy for the episode k + 1 is found with respect to the observations inducing the\nconfidence region Mk that is built using all modules (see (17)).\n\nAlgorithm 1: The UCRL-M algorithm.\n\nInput: S and A."
+          },
+          {
+            "id": "e5c6afbf99e513cfce12",
+            "source_id": "2308.02391v1",
+            "page": 14,
+            "score": 0.674802,
+            "text": "4.5 Time complexity of UCRL-M\n\nProposition 1. The time complexity of UCRL-M is O(KSτmix + Ktevi + T), where\n\nK is the number of episodes and tevi the time complexity of extended value iteration.\nFurthermore, E(K) = O(log T).\n\nProof. The time complexity of lines 5 and 6 is O(KSτmix). The complexity of line\n7 is O(Ktevi). The complexity of line 8 is O(Kτmix). The complexity of line 9 is\nO(T −Kτmix), the number of useful observations. As for the expected number of\nepisodes, EK = O(log T) because of the doubling trick used to end the episodes (see\n[5] for example).\n\nNote that the total number of useful samples (excluding the steps made during the\nramping phases ) is T −Kτmix, and each module uses T −Kτmix\n\nτmix\nsamples. As for the\ntime complexity of EVI, each iteration of EVI is O(S3) and the number of iterations\ndepends on the starting point and is more difficult to estimate. In total, the time\ncomplexity does not really depend on τmix or tevi that only appears at the beginning\nof each episode, and the number of episodes is small w.r.t. T.\n\n5 Regret of UCRL-M"
+          },
+          {
+            "id": "aa4d0711b347fd948fa0",
+            "source_id": "2308.02391v1",
+            "page": 18,
+            "score": 0.649191,
+            "text": "7.2 Regret of UCRL-M on the multi-tier queueing network\n\nWe provide the performance of UCRL-M over the queueing network described above\nwhen the number of queues per tier n and the total number of jobs S vary. In Figure 4,\nwe display the average regret over 66 runs of the UCRL-M algorithm when n varies,\nand with parameters scaling with n to keep the systems proportionally comparable.\nMore precisely, the scaling in S and μ is such that as the number of queues increases,\nthe waiting time in each tier remains roughly identical for a job in each tier, and the\nscaling in the holding cost is also consistent with the increase of the number of jobs in\nthe system. Notice that for our choice of parameters, the network is not stable, so that\nwe use the UCRL-M algorithm under more general conditions than those assumed in\nSection 6 and even in Section 2.\n\n18"
+          }
+        ],
+        "new_ids": [
+          "4f41f102f0d1c50cfe6a",
+          "e5c6afbf99e513cfce12",
+          "aa4d0711b347fd948fa0"
+        ],
+        "search_ms": 80.4
+      }
+    ],
+    "retrieved_ids": [
+      "4f41f102f0d1c50cfe6a",
+      "aa4d0711b347fd948fa0",
+      "e5c6afbf99e513cfce12"
+    ],
+    "context_ids": [
+      "4f41f102f0d1c50cfe6a",
+      "e5c6afbf99e513cfce12",
+      "aa4d0711b347fd948fa0"
+    ],
+    "elapsed_ms": 13804.3,
+    "query_id": "q17",
+    "question": "What does the acronym UCRL-M expand to?",
+    "answerable": true,
+    "expected_answer": "Upper Confidence Reinforcement Learning with several Modules.",
+    "gold": [
+      {
+        "source_id": "2308.02391v1",
+        "page": 12,
+        "evidence": "Algorithm UCRL-M (Upper Confidence Reinforcement Learning with several Modules) is given in Algorithm 1."
+      }
+    ],
+    "usage_delta": {
+      "prompt_tokens": 1156,
+      "completion_tokens": 141,
+      "total_tokens": 1297,
+      "calls": 3
+    }
+  },
+  {
+    "status": "abstain",
+    "answer": "Không đủ bằng chứng để trả lời.",
+    "citations": [],
+    "events": [
+      {
+        "event": "search",
+        "tool": "search_dense",
+        "query": "SORL shortcut models training process purpose",
+        "top_k": 3,
+        "results": [
+          {
+            "id": "cc94238ab7b525f6c519",
+            "source_id": "2505.22866v1",
+            "page": 26,
+            "score": 0.787452,
+            "text": "Figure 3 demonstrates SORL’s scalability during both training and inference. At training time, SORL’s\ntraining runtime can be shortened by decreasing the number of backpropagation steps through\ntime. At inference time, SORL maintains similar inference times compared to FQL under varying\ninference-time compute budgets.\n\n26"
+          },
+          {
+            "id": "def7e63b8f703f1715b0",
+            "source_id": "2505.22866v1",
+            "page": 30,
+            "score": 0.785576,
+            "text": "E.2\nSORL Implementation Details\n\nOne of the strengths of SORL is its implementation simplicity. In order to implement SORL, we adapt\nPark et al. [2025]’s open-source implementations of various offline RL algorithms (FQL, IFQL, IQL,\nReBRAC), which are adapted from Park et al. [2024a]’s open-source dataset and codebase. The\nmajor changes are implementing and training the shortcut model, and removing additional training\ncomplexity from FQL (e.g. the teacher/student networks). To ensure a fair comparison, we keep all\nmajor shared hyperparameters the same between the baselines and SORL (e.g. network size, number\nof gradient steps, and discount factor), unless otherwise noted.\n\nValue Network.\nFollowing Park et al. [2025], we train two Q functions and use the mean of the\ntwo in the actor update (Equation 9). Like Park et al. [2025], we use the mean of the two Q functions\nfor the critic update (Equation 14), except for antmaze-large and antmaze-giant tasks, where\nwe follow Park et al. [2025] in using the minimum of the two values. The only change to the FQL\nbaseline’s value network is adding an input that encodes the number of inference steps used to\ngenerate the actions."
+          },
+          {
+            "id": "23f02f5ff2b9eb4082f9",
+            "source_id": "2505.22866v1",
+            "page": 2,
+            "score": 0.785172,
+            "text": "1. We introduce SORL, an efficient, one-stage training procedure for expressive policies that\ncan perform inference under any compute budget, including one-step inference. Despite\nits efficiency, SORL’s policy is still able to capture complex, multi-modal data distributions.\n\n2. Through a novel theoretical analysis of shortcut models, we prove that SORL’s training\nobjective regularizes SORL’s policy to the behavior of the offline data.\n\n3. Empirically, SORL achieves the best performance against 10 baselines on a range of\ndiverse tasks in offline RL.\n\n4. At test-time, SORL can scale with greater inference-time compute by increasing the\nnumber of inference steps (i.e. sequential scaling) and performing best-of-N sampling\n(i.e. parallel scaling). We show empirically that SORL can make up for a smaller trainingtime compute budget with a greater inference-time compute budget. SORL can also generalize\nto more inference steps at test time than the number of steps optimized during training."
+          }
+        ],
+        "new_ids": [
+          "cc94238ab7b525f6c519",
+          "def7e63b8f703f1715b0",
+          "23f02f5ff2b9eb4082f9"
+        ],
+        "search_ms": 70.3
+      },
+      {
+        "event": "search",
+        "tool": "search_dense",
+        "query": "SORL shortcut models purpose incorporation training",
+        "top_k": 3,
+        "results": [
+          {
+            "id": "a5d8c9997ceec909b929",
+            "source_id": "2505.22866v1",
+            "page": 11,
+            "score": 0.781914,
+            "text": "7\nDiscussion\n\nWe introduce SORL: a simple, efficient one-stage training procedure for expressive policies in offline\nRL. SORL’s key property is self-consistency, which enables expressive inference under any inference\nbudget, including one-step. Theoretically, we prove that SORL regularizes to the behavior policy, using\na novel analysis of shortcut models. Empirically, SORL demonstrates the best performance across a\nrange of diverse tasks. Additionally, SORL can be scaled at test-time, empirically demonstrating how\ngreater compute at inference-time can further improve performance. An avenue for future work is to\ninvestigate how SORL can incorporate adaptive test-time scaling [Pan et al., 2025, Ma et al., 2025],\nsuch as selecting the number of inference steps based on the gradient of the Q-function.\n\n11"
+          },
+          {
+            "id": "23f02f5ff2b9eb4082f9",
+            "source_id": "2505.22866v1",
+            "page": 2,
+            "score": 0.781493,
+            "text": "1. We introduce SORL, an efficient, one-stage training procedure for expressive policies that\ncan perform inference under any compute budget, including one-step inference. Despite\nits efficiency, SORL’s policy is still able to capture complex, multi-modal data distributions.\n\n2. Through a novel theoretical analysis of shortcut models, we prove that SORL’s training\nobjective regularizes SORL’s policy to the behavior of the offline data.\n\n3. Empirically, SORL achieves the best performance against 10 baselines on a range of\ndiverse tasks in offline RL.\n\n4. At test-time, SORL can scale with greater inference-time compute by increasing the\nnumber of inference steps (i.e. sequential scaling) and performing best-of-N sampling\n(i.e. parallel scaling). We show empirically that SORL can make up for a smaller trainingtime compute budget with a greater inference-time compute budget. SORL can also generalize\nto more inference steps at test time than the number of steps optimized during training."
+          },
+          {
+            "id": "06944962b469e783b8d2",
+            "source_id": "2505.22866v1",
+            "page": 5,
+            "score": 0.777593,
+            "text": "Actor Loss.\nWe present SORL’s full training procedure in Algorithm 1. There are three components\nto SORL’s training: the Q update, the regularization to offline data, and the self-consistency:\n\nLπ(θ) = LQL(θ)\n| {z }"
+          }
+        ],
+        "new_ids": [
+          "a5d8c9997ceec909b929",
+          "06944962b469e783b8d2"
+        ],
+        "search_ms": 58.8
+      },
+      {
+        "event": "search_limit"
+      },
+      {
+        "event": "final_answer",
+        "enough_evidence": false,
+        "citations": [],
+        "valid": false,
+        "n_retrieved": 5
+      }
+    ],
+    "n_tool_calls": 2,
+    "searches": [
+      {
+        "event": "search",
+        "tool": "search_dense",
+        "query": "SORL shortcut models training process purpose",
+        "top_k": 3,
+        "results": [
+          {
+            "id": "cc94238ab7b525f6c519",
+            "source_id": "2505.22866v1",
+            "page": 26,
+            "score": 0.787452,
+            "text": "Figure 3 demonstrates SORL’s scalability during both training and inference. At training time, SORL’s\ntraining runtime can be shortened by decreasing the number of backpropagation steps through\ntime. At inference time, SORL maintains similar inference times compared to FQL under varying\ninference-time compute budgets.\n\n26"
+          },
+          {
+            "id": "def7e63b8f703f1715b0",
+            "source_id": "2505.22866v1",
+            "page": 30,
+            "score": 0.785576,
+            "text": "E.2\nSORL Implementation Details\n\nOne of the strengths of SORL is its implementation simplicity. In order to implement SORL, we adapt\nPark et al. [2025]’s open-source implementations of various offline RL algorithms (FQL, IFQL, IQL,\nReBRAC), which are adapted from Park et al. [2024a]’s open-source dataset and codebase. The\nmajor changes are implementing and training the shortcut model, and removing additional training\ncomplexity from FQL (e.g. the teacher/student networks). To ensure a fair comparison, we keep all\nmajor shared hyperparameters the same between the baselines and SORL (e.g. network size, number\nof gradient steps, and discount factor), unless otherwise noted.\n\nValue Network.\nFollowing Park et al. [2025], we train two Q functions and use the mean of the\ntwo in the actor update (Equation 9). Like Park et al. [2025], we use the mean of the two Q functions\nfor the critic update (Equation 14), except for antmaze-large and antmaze-giant tasks, where\nwe follow Park et al. [2025] in using the minimum of the two values. The only change to the FQL\nbaseline’s value network is adding an input that encodes the number of inference steps used to\ngenerate the actions."
+          },
+          {
+            "id": "23f02f5ff2b9eb4082f9",
+            "source_id": "2505.22866v1",
+            "page": 2,
+            "score": 0.785172,
+            "text": "1. We introduce SORL, an efficient, one-stage training procedure for expressive policies that\ncan perform inference under any compute budget, including one-step inference. Despite\nits efficiency, SORL’s policy is still able to capture complex, multi-modal data distributions.\n\n2. Through a novel theoretical analysis of shortcut models, we prove that SORL’s training\nobjective regularizes SORL’s policy to the behavior of the offline data.\n\n3. Empirically, SORL achieves the best performance against 10 baselines on a range of\ndiverse tasks in offline RL.\n\n4. At test-time, SORL can scale with greater inference-time compute by increasing the\nnumber of inference steps (i.e. sequential scaling) and performing best-of-N sampling\n(i.e. parallel scaling). We show empirically that SORL can make up for a smaller trainingtime compute budget with a greater inference-time compute budget. SORL can also generalize\nto more inference steps at test time than the number of steps optimized during training."
+          }
+        ],
+        "new_ids": [
+          "cc94238ab7b525f6c519",
+          "def7e63b8f703f1715b0",
+          "23f02f5ff2b9eb4082f9"
+        ],
+        "search_ms": 70.3
+      },
+      {
+        "event": "search",
+        "tool": "search_dense",
+        "query": "SORL shortcut models purpose incorporation training",
+        "top_k": 3,
+        "results": [
+          {
+            "id": "a5d8c9997ceec909b929",
+            "source_id": "2505.22866v1",
+            "page": 11,
+            "score": 0.781914,
+            "text": "7\nDiscussion\n\nWe introduce SORL: a simple, efficient one-stage training procedure for expressive policies in offline\nRL. SORL’s key property is self-consistency, which enables expressive inference under any inference\nbudget, including one-step. Theoretically, we prove that SORL regularizes to the behavior policy, using\na novel analysis of shortcut models. Empirically, SORL demonstrates the best performance across a\nrange of diverse tasks. Additionally, SORL can be scaled at test-time, empirically demonstrating how\ngreater compute at inference-time can further improve performance. An avenue for future work is to\ninvestigate how SORL can incorporate adaptive test-time scaling [Pan et al., 2025, Ma et al., 2025],\nsuch as selecting the number of inference steps based on the gradient of the Q-function.\n\n11"
+          },
+          {
+            "id": "23f02f5ff2b9eb4082f9",
+            "source_id": "2505.22866v1",
+            "page": 2,
+            "score": 0.781493,
+            "text": "1. We introduce SORL, an efficient, one-stage training procedure for expressive policies that\ncan perform inference under any compute budget, including one-step inference. Despite\nits efficiency, SORL’s policy is still able to capture complex, multi-modal data distributions.\n\n2. Through a novel theoretical analysis of shortcut models, we prove that SORL’s training\nobjective regularizes SORL’s policy to the behavior of the offline data.\n\n3. Empirically, SORL achieves the best performance against 10 baselines on a range of\ndiverse tasks in offline RL.\n\n4. At test-time, SORL can scale with greater inference-time compute by increasing the\nnumber of inference steps (i.e. sequential scaling) and performing best-of-N sampling\n(i.e. parallel scaling). We show empirically that SORL can make up for a smaller trainingtime compute budget with a greater inference-time compute budget. SORL can also generalize\nto more inference steps at test time than the number of steps optimized during training."
+          },
+          {
+            "id": "06944962b469e783b8d2",
+            "source_id": "2505.22866v1",
+            "page": 5,
+            "score": 0.777593,
+            "text": "Actor Loss.\nWe present SORL’s full training procedure in Algorithm 1. There are three components\nto SORL’s training: the Q update, the regularization to offline data, and the self-consistency:\n\nLπ(θ) = LQL(θ)\n| {z }"
+          }
+        ],
+        "new_ids": [
+          "a5d8c9997ceec909b929",
+          "06944962b469e783b8d2"
+        ],
+        "search_ms": 58.8
+      }
+    ],
+    "retrieved_ids": [
+      "06944962b469e783b8d2",
+      "23f02f5ff2b9eb4082f9",
+      "a5d8c9997ceec909b929",
+      "cc94238ab7b525f6c519",
+      "def7e63b8f703f1715b0"
+    ],
+    "context_ids": [
+      "cc94238ab7b525f6c519",
+      "def7e63b8f703f1715b0",
+      "23f02f5ff2b9eb4082f9",
+      "a5d8c9997ceec909b929",
+      "06944962b469e783b8d2"
+    ],
+    "elapsed_ms": 148965.6,
+    "query_id": "q18",
+    "question": "Why does SORL incorporate shortcut models into the training process?",
+    "answerable": true,
+    "expected_answer": "To add self-consistency so the policy can generate high quality samples under any inference budget.",
+    "gold": [
+      {
+        "source_id": "2505.22866v1",
+        "page": 2,
+        "evidence": "Our key insight is to leverage shortcut models [Frans et al., 2024], a novel class of generative models, in order to incorporate self-consistency into the training process, thus allowing the policy to generate high quality samples under any inference budget."
+      }
+    ],
+    "usage_delta": {
+      "prompt_tokens": 2003,
+      "completion_tokens": 80,
+      "total_tokens": 2083,
+      "calls": 4
+    }
+  },
+  {
+    "query_id": "q19",
+    "question": "Among the 2025 papers, what does Sparse-Reg regularize when learning from small datasets?",
+    "answerable": true,
+    "status": "error",
+    "error": "ConnectTimeout: HTTPSConnectionPool(host='api.mistral.ai', port=443): Max retries exceeded with url: /v1/chat/completions (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.mistral.ai', port=443) at 0x7e109efbd340>, 'Connection to api.mistral.ai timed out. (connect timeout=120)'))",
+    "events": [],
+    "citations": []
+  },
+  {
+    "status": "abstain",
+    "answer": "Không đủ bằng chứng để trả lời.",
+    "citations": [],
+    "events": [
+      {
+        "event": "search",
+        "tool": "search_dense",
+        "query": "structural condition latent dynamics sample efficiency reinforcement learning optimal control",
+        "top_k": 3,
+        "results": [
+          {
+            "id": "6d5603b2279e9e58165a",
+            "source_id": "2410.17904v1",
+            "page": 1,
+            "score": 0.859373,
+            "text": "1\nIntroduction\n\nMany application domains for reinforcement learning (RL) require the agent to operate on rich, highdimensional observations of the environment, such as images or text [WSD15; LFDA16; KFPM21; NRKFG22;\nBak+22; Bro+22]. However, the environment itself can often be summarized by latent dynamics for a\nlow-dimensional or otherwise simple latent state space. The decoupling of latent dynamics from the complex\nobservation process naturally suggests a modular framework for algorithm design: first learn a representation\nthat decodes the latent state from observations, then apply a reinforcement learning algorithm for the latent\ndynamics on top of the learned representation. This paper investigates the algorithmic and statistical\nfoundations of this framework. We ask: Can we take existing algorithms and sample complexity guarantees for\nreinforcement learning in the latent state space and lift them to the observation space in a modular fashion?"
+          },
+          {
+            "id": "5ee52cd69d1a772343ec",
+            "source_id": "2410.17904v1",
+            "page": 1,
+            "score": 0.858678,
+            "text": "This paper addresses the question of reinforcement learning under general latent dynamics from a\nstatistical and algorithmic perspective. On the statistical side, our main negative result shows that\nmost well-studied settings for reinforcement learning with function approximation become intractable\nwhen composed with rich observations; we complement this with a positive result, identifying latent\npushforward coverability as a general condition that enables statistical tractability. Algorithmically, we\ndevelop provably efficient observable-to-latent reductions—that is, reductions that transform an arbitrary\nalgorithm for the latent MDP into an algorithm that can operate on rich observations—in two settings:\none where the agent has access to hindsight observations of the latent dynamics [LADZ23], and one where\nthe agent can estimate self-predictive latent models [SAGHCB20]. Together, our results serve as a first\nstep toward a unified statistical and algorithmic theory for reinforcement learning under latent dynamics."
+          },
+          {
+            "id": "4da10432c9e0aa87afe2",
+            "source_id": "2410.17904v1",
+            "page": 2,
+            "score": 0.854474,
+            "text": "1.1\nContributions\n\nWe address the aforementioned limitations by introducing a new framework, reinforcement learning under\ngeneral latent dynamics."
+          }
+        ],
+        "new_ids": [
+          "6d5603b2279e9e58165a",
+          "5ee52cd69d1a772343ec",
+          "4da10432c9e0aa87afe2"
+        ],
+        "search_ms": 55.2
+      },
+      {
+        "event": "search",
+        "tool": "search_dense",
+        "query": "sufficiently expressive latent dynamics sample efficiency reinforcement learning",
+        "top_k": 3,
+        "results": [
+          {
+            "id": "5ee52cd69d1a772343ec",
+            "source_id": "2410.17904v1",
+            "page": 1,
+            "score": 0.887098,
+            "text": "This paper addresses the question of reinforcement learning under general latent dynamics from a\nstatistical and algorithmic perspective. On the statistical side, our main negative result shows that\nmost well-studied settings for reinforcement learning with function approximation become intractable\nwhen composed with rich observations; we complement this with a positive result, identifying latent\npushforward coverability as a general condition that enables statistical tractability. Algorithmically, we\ndevelop provably efficient observable-to-latent reductions—that is, reductions that transform an arbitrary\nalgorithm for the latent MDP into an algorithm that can operate on rich observations—in two settings:\none where the agent has access to hindsight observations of the latent dynamics [LADZ23], and one where\nthe agent can estimate self-predictive latent models [SAGHCB20]. Together, our results serve as a first\nstep toward a unified statistical and algorithmic theory for reinforcement learning under latent dynamics."
+          },
+          {
+            "id": "6d5603b2279e9e58165a",
+            "source_id": "2410.17904v1",
+            "page": 1,
+            "score": 0.88069,
+            "text": "1\nIntroduction\n\nMany application domains for reinforcement learning (RL) require the agent to operate on rich, highdimensional observations of the environment, such as images or text [WSD15; LFDA16; KFPM21; NRKFG22;\nBak+22; Bro+22]. However, the environment itself can often be summarized by latent dynamics for a\nlow-dimensional or otherwise simple latent state space. The decoupling of latent dynamics from the complex\nobservation process naturally suggests a modular framework for algorithm design: first learn a representation\nthat decodes the latent state from observations, then apply a reinforcement learning algorithm for the latent\ndynamics on top of the learned representation. This paper investigates the algorithmic and statistical\nfoundations of this framework. We ask: Can we take existing algorithms and sample complexity guarantees for\nreinforcement learning in the latent state space and lift them to the observation space in a modular fashion?"
+          },
+          {
+            "id": "4da10432c9e0aa87afe2",
+            "source_id": "2410.17904v1",
+            "page": 2,
+            "score": 0.880041,
+            "text": "1.1\nContributions\n\nWe address the aforementioned limitations by introducing a new framework, reinforcement learning under\ngeneral latent dynamics."
+          }
+        ],
+        "new_ids": [],
+        "search_ms": 55.1
+      },
+      {
+        "event": "search_limit"
+      },
+      {
+        "event": "final_answer",
+        "enough_evidence": false,
+        "citations": [],
+        "valid": false,
+        "n_retrieved": 3
+      }
+    ],
+    "n_tool_calls": 2,
+    "searches": [
+      {
+        "event": "search",
+        "tool": "search_dense",
+        "query": "structural condition latent dynamics sample efficiency reinforcement learning optimal control",
+        "top_k": 3,
+        "results": [
+          {
+            "id": "6d5603b2279e9e58165a",
+            "source_id": "2410.17904v1",
+            "page": 1,
+            "score": 0.859373,
+            "text": "1\nIntroduction\n\nMany application domains for reinforcement learning (RL) require the agent to operate on rich, highdimensional observations of the environment, such as images or text [WSD15; LFDA16; KFPM21; NRKFG22;\nBak+22; Bro+22]. However, the environment itself can often be summarized by latent dynamics for a\nlow-dimensional or otherwise simple latent state space. The decoupling of latent dynamics from the complex\nobservation process naturally suggests a modular framework for algorithm design: first learn a representation\nthat decodes the latent state from observations, then apply a reinforcement learning algorithm for the latent\ndynamics on top of the learned representation. This paper investigates the algorithmic and statistical\nfoundations of this framework. We ask: Can we take existing algorithms and sample complexity guarantees for\nreinforcement learning in the latent state space and lift them to the observation space in a modular fashion?"
+          },
+          {
+            "id": "5ee52cd69d1a772343ec",
+            "source_id": "2410.17904v1",
+            "page": 1,
+            "score": 0.858678,
+            "text": "This paper addresses the question of reinforcement learning under general latent dynamics from a\nstatistical and algorithmic perspective. On the statistical side, our main negative result shows that\nmost well-studied settings for reinforcement learning with function approximation become intractable\nwhen composed with rich observations; we complement this with a positive result, identifying latent\npushforward coverability as a general condition that enables statistical tractability. Algorithmically, we\ndevelop provably efficient observable-to-latent reductions—that is, reductions that transform an arbitrary\nalgorithm for the latent MDP into an algorithm that can operate on rich observations—in two settings:\none where the agent has access to hindsight observations of the latent dynamics [LADZ23], and one where\nthe agent can estimate self-predictive latent models [SAGHCB20]. Together, our results serve as a first\nstep toward a unified statistical and algorithmic theory for reinforcement learning under latent dynamics."
+          },
+          {
+            "id": "4da10432c9e0aa87afe2",
+            "source_id": "2410.17904v1",
+            "page": 2,
+            "score": 0.854474,
+            "text": "1.1\nContributions\n\nWe address the aforementioned limitations by introducing a new framework, reinforcement learning under\ngeneral latent dynamics."
+          }
+        ],
+        "new_ids": [
+          "6d5603b2279e9e58165a",
+          "5ee52cd69d1a772343ec",
+          "4da10432c9e0aa87afe2"
+        ],
+        "search_ms": 55.2
+      },
+      {
+        "event": "search",
+        "tool": "search_dense",
+        "query": "sufficiently expressive latent dynamics sample efficiency reinforcement learning",
+        "top_k": 3,
+        "results": [
+          {
+            "id": "5ee52cd69d1a772343ec",
+            "source_id": "2410.17904v1",
+            "page": 1,
+            "score": 0.887098,
+            "text": "This paper addresses the question of reinforcement learning under general latent dynamics from a\nstatistical and algorithmic perspective. On the statistical side, our main negative result shows that\nmost well-studied settings for reinforcement learning with function approximation become intractable\nwhen composed with rich observations; we complement this with a positive result, identifying latent\npushforward coverability as a general condition that enables statistical tractability. Algorithmically, we\ndevelop provably efficient observable-to-latent reductions—that is, reductions that transform an arbitrary\nalgorithm for the latent MDP into an algorithm that can operate on rich observations—in two settings:\none where the agent has access to hindsight observations of the latent dynamics [LADZ23], and one where\nthe agent can estimate self-predictive latent models [SAGHCB20]. Together, our results serve as a first\nstep toward a unified statistical and algorithmic theory for reinforcement learning under latent dynamics."
+          },
+          {
+            "id": "6d5603b2279e9e58165a",
+            "source_id": "2410.17904v1",
+            "page": 1,
+            "score": 0.88069,
+            "text": "1\nIntroduction\n\nMany application domains for reinforcement learning (RL) require the agent to operate on rich, highdimensional observations of the environment, such as images or text [WSD15; LFDA16; KFPM21; NRKFG22;\nBak+22; Bro+22]. However, the environment itself can often be summarized by latent dynamics for a\nlow-dimensional or otherwise simple latent state space. The decoupling of latent dynamics from the complex\nobservation process naturally suggests a modular framework for algorithm design: first learn a representation\nthat decodes the latent state from observations, then apply a reinforcement learning algorithm for the latent\ndynamics on top of the learned representation. This paper investigates the algorithmic and statistical\nfoundations of this framework. We ask: Can we take existing algorithms and sample complexity guarantees for\nreinforcement learning in the latent state space and lift them to the observation space in a modular fashion?"
+          },
+          {
+            "id": "4da10432c9e0aa87afe2",
+            "source_id": "2410.17904v1",
+            "page": 2,
+            "score": 0.880041,
+            "text": "1.1\nContributions\n\nWe address the aforementioned limitations by introducing a new framework, reinforcement learning under\ngeneral latent dynamics."
+          }
+        ],
+        "new_ids": [],
+        "search_ms": 55.1
+      }
+    ],
+    "retrieved_ids": [
+      "4da10432c9e0aa87afe2",
+      "5ee52cd69d1a772343ec",
+      "6d5603b2279e9e58165a"
+    ],
+    "context_ids": [
+      "6d5603b2279e9e58165a",
+      "5ee52cd69d1a772343ec",
+      "4da10432c9e0aa87afe2"
+    ],
+    "elapsed_ms": 8495.3,
+    "query_id": "q20",
+    "question": "Which structural condition on the latent dynamics is identified as enabling sample efficiency?",
+    "answerable": true,
+    "expected_answer": "Pushforward coverability.",
+    "gold": [
+      {
+        "source_id": "2410.17904v1",
+        "page": 2,
+        "evidence": "We complement these negative findings with a positive result, identifying pushforward coverability as a general structural condition on the latent dynamics that enables sample efficiency (Theorem 3.2)."
+      }
+    ],
+    "usage_delta": {
+      "prompt_tokens": 1628,
+      "completion_tokens": 81,
+      "total_tokens": 1709,
+      "calls": 4
+    }
+  },
+  {
+    "status": "abstain",
+    "answer": "Không đủ bằng chứng để trả lời.",
+    "citations": [],
+    "events": [
+      {
+        "event": "search",
+        "tool": "search_dense",
+        "query": "autonomous driving offline reinforcement learning benchmark GPU model number of GPUs",
+        "top_k": 3,
+        "results": [
+          {
+            "id": "c099dfc8190fd395b1e5",
+            "source_id": "2404.02429v1",
+            "page": 1,
+            "score": 0.848389,
+            "text": "AD4RL: Autonomous Driving Benchmarks for\nOffline Reinforcement Learning with Value-based Dataset\n\nDongsu Lee†, Chanin Eom†, and Minhae Kwon†,∗\n\nAbstract— Offline reinforcement learning has emerged as a\npromising technology by enhancing its practicality through the\nuse of pre-collected large datasets. Despite its practical benefits,\nmost algorithm development research in offline reinforcement\nlearning still relies on game tasks with synthetic datasets.\nTo address such limitations, this paper provides autonomous\ndriving datasets and benchmarks for offline reinforcement\nlearning research. We provide 19 datasets, including realworld human driver’s datasets, and seven popular offline\nreinforcement learning algorithms in three realistic driving\nscenarios. We also provide a unified decision-making process\nmodel that can operate effectively across different scenarios,\nserving as a reference framework in algorithm design. Our\nresearch lays the groundwork for further collaborations in the\ncommunity to explore practical aspects of existing reinforcement learning methods. Dataset and codes can be found in\nhttps://sites.google.com/view/ad4rl."
+          },
+          {
+            "id": "04976b3e7d391aac2e0b",
+            "source_id": "2404.02429v1",
+            "page": 1,
+            "score": 0.84592,
+            "text": "Contributions: Our primary contribution is the incorporation of real-world human-driving datasets as well as synthetic\ndatasets in offline reinforcement learning for autonomous\ndriving tasks. We employ the US Highway 101 dataset [18]\ncollected by the next generation simulator (NGSIM) project\nof the Federal Highway Administration (FHWA) [19]. To\nprovide a useful dataset and benchmark, we pre-process the\nNGSIM dataset by labeling the reward, correcting errors,\nand normalizing values. We also propose a unified partially\nobservable Markov decision process (POMDP) that can\nbe applied across various driving scenarios. Finally, we\nbenchmark offline reinforcement learning algorithms within\nthe FLOW framework and extend its functionality.1"
+          },
+          {
+            "id": "2b21eb884ddd92bd5ff0",
+            "source_id": "2404.02429v1",
+            "page": 2,
+            "score": 0.841833,
+            "text": "Secondly, the\nmajority of existing studies are confined to synthetic datasets\ngenerated by pre-trained policies within online reinforcement\nlearning settings rather than utilizing real-world datasets [13].\nIn response to these limitations and with the aim of providing\na comprehensive benchmark for offline reinforcement learning,\nthis paper assesses the performance of cutting-edge offline\nreinforcement learning algorithms using both human drivergenerated datasets and synthetic datasets.."
+          }
+        ],
+        "new_ids": [
+          "c099dfc8190fd395b1e5",
+          "04976b3e7d391aac2e0b",
+          "2b21eb884ddd92bd5ff0"
+        ],
+        "search_ms": 79.2
+      },
+      {
+        "event": "search",
+        "tool": "search_dense",
+        "query": "AD4RL GPU model number of GPUs training",
+        "top_k": 3,
+        "results": [
+          {
+            "id": "c099dfc8190fd395b1e5",
+            "source_id": "2404.02429v1",
+            "page": 1,
+            "score": 0.735743,
+            "text": "AD4RL: Autonomous Driving Benchmarks for\nOffline Reinforcement Learning with Value-based Dataset\n\nDongsu Lee†, Chanin Eom†, and Minhae Kwon†,∗\n\nAbstract— Offline reinforcement learning has emerged as a\npromising technology by enhancing its practicality through the\nuse of pre-collected large datasets. Despite its practical benefits,\nmost algorithm development research in offline reinforcement\nlearning still relies on game tasks with synthetic datasets.\nTo address such limitations, this paper provides autonomous\ndriving datasets and benchmarks for offline reinforcement\nlearning research. We provide 19 datasets, including realworld human driver’s datasets, and seven popular offline\nreinforcement learning algorithms in three realistic driving\nscenarios. We also provide a unified decision-making process\nmodel that can operate effectively across different scenarios,\nserving as a reference framework in algorithm design. Our\nresearch lays the groundwork for further collaborations in the\ncommunity to explore practical aspects of existing reinforcement learning methods. Dataset and codes can be found in\nhttps://sites.google.com/view/ad4rl."
+          },
+          {
+            "id": "034dcf64be143b446c6c",
+            "source_id": "2303.13117v1",
+            "page": 9,
+            "score": 0.735559,
+            "text": "8\nEXPERIMENT RESULTS\n\nTraining.\nWe first describe our experiment settings. We used the refactored Attention Model as\nour agent for all OR problems. We trained our agent with the PPO algorithm in RL platforms. The\ntraining was done with the Adam optimizer with a learning rate of η = 10−3 on a single Titan RTX\nGPU. Each epoch consists of 1024 randomly generated RL environment instances. For comparison,\nwe also trained the original implementation of the Attention Model from Kool et al. (2019). We\nfollowed its default setting and trained it for 100 epochs on the same GPU.\n\n9"
+          },
+          {
+            "id": "3c83780f07eeec6ce792",
+            "source_id": "2303.13117v1",
+            "page": 10,
+            "score": 0.715134,
+            "text": "8.2\nABLATION STUDY\n\nAs an ablation study, we performed experiments with CleanRL with different parts of our design.\nThe results are shown in Table 4. We can observe significant improvements with the components.\nBy caching the encoder outputs, we were able to greatly reduce unnecessary re-computation during\ntraining. We profiled the implementation and found that 80% of the training time can be saved by\ncaching the encoder output. By using a larger batch with a higher learning rate, we could scale the\ntraining while fitting the training inside a single GPU. By using parallel decoding and the bi-level\nenvironment vectorization, we were able to substantially increase the environment steps trained per\nsecond, boosting the collection efficiency of the environment observations. With these designs, our\nimplementation has already surpassed the original implementation of the Attention Model. Lastly,\nby employing Multi-Greedy search during inference, we were able to achieve the same performance in just 3 hours.\n\n10"
+          }
+        ],
+        "new_ids": [
+          "034dcf64be143b446c6c",
+          "3c83780f07eeec6ce792"
+        ],
+        "search_ms": 81.2
+      },
+      {
+        "event": "search_limit"
+      },
+      {
+        "event": "final_answer",
+        "enough_evidence": false,
+        "citations": [],
+        "valid": false,
+        "n_retrieved": 5
+      }
+    ],
+    "n_tool_calls": 2,
+    "searches": [
+      {
+        "event": "search",
+        "tool": "search_dense",
+        "query": "autonomous driving offline reinforcement learning benchmark GPU model number of GPUs",
+        "top_k": 3,
+        "results": [
+          {
+            "id": "c099dfc8190fd395b1e5",
+            "source_id": "2404.02429v1",
+            "page": 1,
+            "score": 0.848389,
+            "text": "AD4RL: Autonomous Driving Benchmarks for\nOffline Reinforcement Learning with Value-based Dataset\n\nDongsu Lee†, Chanin Eom†, and Minhae Kwon†,∗\n\nAbstract— Offline reinforcement learning has emerged as a\npromising technology by enhancing its practicality through the\nuse of pre-collected large datasets. Despite its practical benefits,\nmost algorithm development research in offline reinforcement\nlearning still relies on game tasks with synthetic datasets.\nTo address such limitations, this paper provides autonomous\ndriving datasets and benchmarks for offline reinforcement\nlearning research. We provide 19 datasets, including realworld human driver’s datasets, and seven popular offline\nreinforcement learning algorithms in three realistic driving\nscenarios. We also provide a unified decision-making process\nmodel that can operate effectively across different scenarios,\nserving as a reference framework in algorithm design. Our\nresearch lays the groundwork for further collaborations in the\ncommunity to explore practical aspects of existing reinforcement learning methods. Dataset and codes can be found in\nhttps://sites.google.com/view/ad4rl."
+          },
+          {
+            "id": "04976b3e7d391aac2e0b",
+            "source_id": "2404.02429v1",
+            "page": 1,
+            "score": 0.84592,
+            "text": "Contributions: Our primary contribution is the incorporation of real-world human-driving datasets as well as synthetic\ndatasets in offline reinforcement learning for autonomous\ndriving tasks. We employ the US Highway 101 dataset [18]\ncollected by the next generation simulator (NGSIM) project\nof the Federal Highway Administration (FHWA) [19]. To\nprovide a useful dataset and benchmark, we pre-process the\nNGSIM dataset by labeling the reward, correcting errors,\nand normalizing values. We also propose a unified partially\nobservable Markov decision process (POMDP) that can\nbe applied across various driving scenarios. Finally, we\nbenchmark offline reinforcement learning algorithms within\nthe FLOW framework and extend its functionality.1"
+          },
+          {
+            "id": "2b21eb884ddd92bd5ff0",
+            "source_id": "2404.02429v1",
+            "page": 2,
+            "score": 0.841833,
+            "text": "Secondly, the\nmajority of existing studies are confined to synthetic datasets\ngenerated by pre-trained policies within online reinforcement\nlearning settings rather than utilizing real-world datasets [13].\nIn response to these limitations and with the aim of providing\na comprehensive benchmark for offline reinforcement learning,\nthis paper assesses the performance of cutting-edge offline\nreinforcement learning algorithms using both human drivergenerated datasets and synthetic datasets.."
+          }
+        ],
+        "new_ids": [
+          "c099dfc8190fd395b1e5",
+          "04976b3e7d391aac2e0b",
+          "2b21eb884ddd92bd5ff0"
+        ],
+        "search_ms": 79.2
+      },
+      {
+        "event": "search",
+        "tool": "search_dense",
+        "query": "AD4RL GPU model number of GPUs training",
+        "top_k": 3,
+        "results": [
+          {
+            "id": "c099dfc8190fd395b1e5",
+            "source_id": "2404.02429v1",
+            "page": 1,
+            "score": 0.735743,
+            "text": "AD4RL: Autonomous Driving Benchmarks for\nOffline Reinforcement Learning with Value-based Dataset\n\nDongsu Lee†, Chanin Eom†, and Minhae Kwon†,∗\n\nAbstract— Offline reinforcement learning has emerged as a\npromising technology by enhancing its practicality through the\nuse of pre-collected large datasets. Despite its practical benefits,\nmost algorithm development research in offline reinforcement\nlearning still relies on game tasks with synthetic datasets.\nTo address such limitations, this paper provides autonomous\ndriving datasets and benchmarks for offline reinforcement\nlearning research. We provide 19 datasets, including realworld human driver’s datasets, and seven popular offline\nreinforcement learning algorithms in three realistic driving\nscenarios. We also provide a unified decision-making process\nmodel that can operate effectively across different scenarios,\nserving as a reference framework in algorithm design. Our\nresearch lays the groundwork for further collaborations in the\ncommunity to explore practical aspects of existing reinforcement learning methods. Dataset and codes can be found in\nhttps://sites.google.com/view/ad4rl."
+          },
+          {
+            "id": "034dcf64be143b446c6c",
+            "source_id": "2303.13117v1",
+            "page": 9,
+            "score": 0.735559,
+            "text": "8\nEXPERIMENT RESULTS\n\nTraining.\nWe first describe our experiment settings. We used the refactored Attention Model as\nour agent for all OR problems. We trained our agent with the PPO algorithm in RL platforms. The\ntraining was done with the Adam optimizer with a learning rate of η = 10−3 on a single Titan RTX\nGPU. Each epoch consists of 1024 randomly generated RL environment instances. For comparison,\nwe also trained the original implementation of the Attention Model from Kool et al. (2019). We\nfollowed its default setting and trained it for 100 epochs on the same GPU.\n\n9"
+          },
+          {
+            "id": "3c83780f07eeec6ce792",
+            "source_id": "2303.13117v1",
+            "page": 10,
+            "score": 0.715134,
+            "text": "8.2\nABLATION STUDY\n\nAs an ablation study, we performed experiments with CleanRL with different parts of our design.\nThe results are shown in Table 4. We can observe significant improvements with the components.\nBy caching the encoder outputs, we were able to greatly reduce unnecessary re-computation during\ntraining. We profiled the implementation and found that 80% of the training time can be saved by\ncaching the encoder output. By using a larger batch with a higher learning rate, we could scale the\ntraining while fitting the training inside a single GPU. By using parallel decoding and the bi-level\nenvironment vectorization, we were able to substantially increase the environment steps trained per\nsecond, boosting the collection efficiency of the environment observations. With these designs, our\nimplementation has already surpassed the original implementation of the Attention Model. Lastly,\nby employing Multi-Greedy search during inference, we were able to achieve the same performance in just 3 hours.\n\n10"
+          }
+        ],
+        "new_ids": [
+          "034dcf64be143b446c6c",
+          "3c83780f07eeec6ce792"
+        ],
+        "search_ms": 81.2
+      }
+    ],
+    "retrieved_ids": [
+      "034dcf64be143b446c6c",
+      "04976b3e7d391aac2e0b",
+      "2b21eb884ddd92bd5ff0",
+      "3c83780f07eeec6ce792",
+      "c099dfc8190fd395b1e5"
+    ],
+    "context_ids": [
+      "c099dfc8190fd395b1e5",
+      "04976b3e7d391aac2e0b",
+      "2b21eb884ddd92bd5ff0",
+      "034dcf64be143b446c6c",
+      "3c83780f07eeec6ce792"
+    ],
+    "elapsed_ms": 5652.7,
+    "query_id": "u03",
+    "question": "Which GPU model and how many GPUs were used to train the models of the autonomous driving offline RL benchmark?",
+    "answerable": false,
+    "expected_answer": null,
+    "gold": null,
+    "usage_delta": {
+      "prompt_tokens": 1889,
+      "completion_tokens": 91,
+      "total_tokens": 1980,
+      "calls": 4
+    }
+  },
+  {
+    "status": "abstain",
+    "answer": "Không đủ bằng chứng để trả lời.",
+    "citations": [],
+    "events": [
+      {
+        "event": "search",
+        "tool": "search_dense",
+        "query": "tube-based stochastic MPC controller quadruped robot hardware experiments validation",
+        "top_k": 3,
+        "results": [
+          {
+            "id": "73d0d617dbbd09f4f8c4",
+            "source_id": "2104.10383v1",
+            "page": 1,
+            "score": 0.785021,
+            "text": "Abstract—This paper presents two stochastic model predictive\ncontrol methods for linear time-invariant systems subject to\nunbounded additive uncertainties. The new methods are developed by formulating the chance constraints into deterministic\nform, which are treated in analogy with robust constraints, by\nusing the probabilistic reachable set. Firstly, the probabilistically\nresolvable time-varying tube-based stochastic model predictive\ncontrol algorithm is designed by employing the time-varying\nprobabilistic reachable sets as the tubes. Secondly, by utilizing\nthe probabilistic positively invariant set, the probabilistically resolvable constant tube-based stochastic model predictive control\nalgorithm is developed by employing the constantly tightened\nconstraints in the entire prediction horizons. In addition, to\nenhance the feasibility of the algorithms, the soft constraints\nare imposed to the state initializations. The algorithm feasibility\nand closed-loop stability results are provided. The efficacy of the\napproaches are demonstrated by means of numerical simulations."
+          },
+          {
+            "id": "d7915ac64810818243fe",
+            "source_id": "2004.01625v2",
+            "page": 10,
+            "score": 0.77883,
+            "text": "where P and K relate to the discrete-time infinitehorizon linear quadratic regulator using common notation. Lastly, Assumption 5 is numerically verified. We\nsubsequently present the simulation of the closed loop\ndriven by the MPC in (6) with weights Q = 6, R = 0.1\nand horizon N = 4. The disturbance has a uniform\ndistribution in the interval [−0.2, 0.2]. The figures below are based on an initial estimate ˆθ0 = [1.5 −0.4]⊤.\nFigure 1 depicts a fast convergence of the closed loop to\na small neighborhood of the reference trajectory. The\nerror between the reference trajectory and the closed\nloop can be explained by the initial parameter uncertainty and the noise. Still, the system can be regulated\nto a neighborhood of the steady tuple (1, −0.09) despite\nnoise and parameter uncertainties. The uncertain pa-\n\n0\n10\n20\n30\n40\n−4\n\n−2\n\n0\n\nxk\nxr(k)\nxs\n\n0\n10\n20\n30\n40\n−2\n\n0\n4\n6\n8\n\nk\n\nu⋆\n\n0|k\nur(k)\nus\n\nFig. 1. Closed loop with noised |wk| ≤0.2 versus PE reference trajectory"
+          },
+          {
+            "id": "6ca6cb0f0884ae72e92d",
+            "source_id": "2104.10383v1",
+            "page": 1,
+            "score": 0.772614,
+            "text": "Index Terms—Tube-based stochastic MPC, uncertain system,\nmodel predictive control, chance constraints, constrained control."
+          }
+        ],
+        "new_ids": [
+          "73d0d617dbbd09f4f8c4",
+          "d7915ac64810818243fe",
+          "6ca6cb0f0884ae72e92d"
+        ],
+        "search_ms": 64.8
+      },
+      {
+        "event": "search_done",
+        "content": "I do not have enough evidence to answer your question about the specific real quadruped robot hardware used for validation of the tube-based stochastic MPC controller."
+      },
+      {
+        "event": "final_answer",
+        "enough_evidence": false,
+        "citations": [],
+        "valid": false,
+        "n_retrieved": 3
+      }
+    ],
+    "n_tool_calls": 1,
+    "searches": [
+      {
+        "event": "search",
+        "tool": "search_dense",
+        "query": "tube-based stochastic MPC controller quadruped robot hardware experiments validation",
+        "top_k": 3,
+        "results": [
+          {
+            "id": "73d0d617dbbd09f4f8c4",
+            "source_id": "2104.10383v1",
+            "page": 1,
+            "score": 0.785021,
+            "text": "Abstract—This paper presents two stochastic model predictive\ncontrol methods for linear time-invariant systems subject to\nunbounded additive uncertainties. The new methods are developed by formulating the chance constraints into deterministic\nform, which are treated in analogy with robust constraints, by\nusing the probabilistic reachable set. Firstly, the probabilistically\nresolvable time-varying tube-based stochastic model predictive\ncontrol algorithm is designed by employing the time-varying\nprobabilistic reachable sets as the tubes. Secondly, by utilizing\nthe probabilistic positively invariant set, the probabilistically resolvable constant tube-based stochastic model predictive control\nalgorithm is developed by employing the constantly tightened\nconstraints in the entire prediction horizons. In addition, to\nenhance the feasibility of the algorithms, the soft constraints\nare imposed to the state initializations. The algorithm feasibility\nand closed-loop stability results are provided. The efficacy of the\napproaches are demonstrated by means of numerical simulations."
+          },
+          {
+            "id": "d7915ac64810818243fe",
+            "source_id": "2004.01625v2",
+            "page": 10,
+            "score": 0.77883,
+            "text": "where P and K relate to the discrete-time infinitehorizon linear quadratic regulator using common notation. Lastly, Assumption 5 is numerically verified. We\nsubsequently present the simulation of the closed loop\ndriven by the MPC in (6) with weights Q = 6, R = 0.1\nand horizon N = 4. The disturbance has a uniform\ndistribution in the interval [−0.2, 0.2]. The figures below are based on an initial estimate ˆθ0 = [1.5 −0.4]⊤.\nFigure 1 depicts a fast convergence of the closed loop to\na small neighborhood of the reference trajectory. The\nerror between the reference trajectory and the closed\nloop can be explained by the initial parameter uncertainty and the noise. Still, the system can be regulated\nto a neighborhood of the steady tuple (1, −0.09) despite\nnoise and parameter uncertainties. The uncertain pa-\n\n0\n10\n20\n30\n40\n−4\n\n−2\n\n0\n\nxk\nxr(k)\nxs\n\n0\n10\n20\n30\n40\n−2\n\n0\n4\n6\n8\n\nk\n\nu⋆\n\n0|k\nur(k)\nus\n\nFig. 1. Closed loop with noised |wk| ≤0.2 versus PE reference trajectory"
+          },
+          {
+            "id": "6ca6cb0f0884ae72e92d",
+            "source_id": "2104.10383v1",
+            "page": 1,
+            "score": 0.772614,
+            "text": "Index Terms—Tube-based stochastic MPC, uncertain system,\nmodel predictive control, chance constraints, constrained control."
+          }
+        ],
+        "new_ids": [
+          "73d0d617dbbd09f4f8c4",
+          "d7915ac64810818243fe",
+          "6ca6cb0f0884ae72e92d"
+        ],
+        "search_ms": 64.8
+      }
+    ],
+    "retrieved_ids": [
+      "6ca6cb0f0884ae72e92d",
+      "73d0d617dbbd09f4f8c4",
+      "d7915ac64810818243fe"
+    ],
+    "context_ids": [
+      "73d0d617dbbd09f4f8c4",
+      "d7915ac64810818243fe",
+      "6ca6cb0f0884ae72e92d"
+    ],
+    "elapsed_ms": 6567.7,
+    "query_id": "u04",
+    "question": "On which real quadruped robot hardware was the tube-based stochastic MPC controller validated in experiments?",
+    "answerable": false,
+    "expected_answer": null,
+    "gold": null,
+    "usage_delta": {
+      "prompt_tokens": 1068,
+      "completion_tokens": 74,
+      "total_tokens": 1142,
+      "calls": 3
+    }
+  }
+]

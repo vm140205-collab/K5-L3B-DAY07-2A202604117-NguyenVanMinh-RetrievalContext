@@ -1,0 +1,994 @@
+[
+  {
+    "status": "answered",
+    "answer": "The two meta-algorithms proposed are pessimistic empirical risk minimization (PERM) and pessimistic proximal policy optimization (PPPO) [171cf669fe6e1890ca0b, ecba1f4c9f0ddf8d8e70].",
+    "citations": [
+      "171cf669fe6e1890ca0b",
+      "ecba1f4c9f0ddf8d8e70"
+    ],
+    "events": [
+      {
+        "event": "search",
+        "tool": "search_hybrid",
+        "query": "meta-algorithms zero-shot generalization offline reinforcement learning",
+        "top_k": 3,
+        "results": [
+          {
+            "id": "171cf669fe6e1890ca0b",
+            "source_id": "2503.07988v1",
+            "page": 1,
+            "score": 0.032787,
+            "text": "Provable Zero-Shot Generalization in Offline Reinforcement\n\nLearning\n\nZhiyong Wang ∗Chen Yang † John C.S. Lui ‡ Dongruo Zhou §\n\nAbstract\n\nIn this work, we study offline reinforcement learning (RL) with zero-shot generalization\nproperty (ZSG), where the agent has access to an offline dataset including experiences from\ndifferent environments, and the goal of the agent is to train a policy over the training environments\nwhich performs well on test environments without further interaction. Existing work showed\nthat classical offline RL fails to generalize to new, unseen environments. We propose pessimistic\nempirical risk minimization (PERM) and pessimistic proximal policy optimization (PPPO),\nwhich leverage pessimistic policy evaluation to guide policy learning and enhance generalization.\nWe show that both PERM and PPPO are capable of finding a near-optimal policy with ZSG. Our\n\nresult serves as a first step in understanding the foundation of the generalization phenomenon in\noffline reinforcement learning."
+          },
+          {
+            "id": "ecba1f4c9f0ddf8d8e70",
+            "source_id": "2503.07988v1",
+            "page": 13,
+            "score": 0.032002,
+            "text": "7\nConclusion and Future Work\n\nIn this work, we study the zero-shot generalization (ZSG) performance of offline reinforcement\nlearning (RL). We propose two offline RL frameworks, pessimistic empirical risk minimization and\npessimistic proximal policy optimization, and show that both of them can find the optimal policy\nwith ZSG ability. We also show that such a generalization property does not hold for offline RL\nwithout knowing the context information of the environment, which demonstrates the necessity of\nour proposed new algorithms. Currently, our theorems and algorithm design depend on the i.i.d.\nassumption of the environment selection. How to relax such an assumption remains an interesting\nfuture direction.\n\nAppendix\n\nWe provide missing proofs and theoretical results of our paper in the Appendix sections:\n\n• In Appendix A, we provide the missing results of Section 4.\nWe first provide the proof of\nProposition 4.1, then we analyze the suboptimality gap of the Pessimistic Value Iteration (PEVI)\n(Jin et al. [2021]) in the contextual linear MDP setting without context information."
+          },
+          {
+            "id": "f2337a43486e583edb89",
+            "source_id": "2503.07988v1",
+            "page": 1,
+            "score": 0.031258,
+            "text": "1\nIntroduction\n\nOffline reinforcement learning (RL) has become increasingly significant in modern RL because\nit eliminates the need for direct interaction between the agent and the environment; instead, it\nrelies solely on learning from an offline training dataset. However, in practical applications, the\noffline training dataset often originates from a different environment than the one of interest.\nThis discrepancy necessitates evaluating RL agents in a generalization setting, where the training\ninvolves a finite number of environments drawn from a specific distribution, and the testing is\nconducted on a distinct set of environments from the same or different distribution. This scenario is\ncommonly referred to as the zero-shot generalization (ZSG) challenge which has been studied in\nonline RL[Rajeswaran et al., 2017, Machado et al., 2018, Justesen et al., 2018, Packer et al., 2019,\nZhang et al., 2018a,b], as the agent receives no training data from the environments it is tested on."
+          }
+        ],
+        "new_ids": [
+          "171cf669fe6e1890ca0b",
+          "ecba1f4c9f0ddf8d8e70",
+          "f2337a43486e583edb89"
+        ],
+        "search_ms": 144.4
+      },
+      {
+        "event": "search_done",
+        "content": "The two meta-algorithms proposed to obtain zero-shot generalization in offline reinforcement learning are **pessimistic empirical risk minimization (PERM)** and **pessimistic proximal policy optimizat"
+      },
+      {
+        "event": "final_answer",
+        "enough_evidence": true,
+        "citations": [
+          "171cf669fe6e1890ca0b",
+          "ecba1f4c9f0ddf8d8e70"
+        ],
+        "valid": true,
+        "n_retrieved": 3
+      }
+    ],
+    "n_tool_calls": 1,
+    "searches": [
+      {
+        "event": "search",
+        "tool": "search_hybrid",
+        "query": "meta-algorithms zero-shot generalization offline reinforcement learning",
+        "top_k": 3,
+        "results": [
+          {
+            "id": "171cf669fe6e1890ca0b",
+            "source_id": "2503.07988v1",
+            "page": 1,
+            "score": 0.032787,
+            "text": "Provable Zero-Shot Generalization in Offline Reinforcement\n\nLearning\n\nZhiyong Wang ∗Chen Yang † John C.S. Lui ‡ Dongruo Zhou §\n\nAbstract\n\nIn this work, we study offline reinforcement learning (RL) with zero-shot generalization\nproperty (ZSG), where the agent has access to an offline dataset including experiences from\ndifferent environments, and the goal of the agent is to train a policy over the training environments\nwhich performs well on test environments without further interaction. Existing work showed\nthat classical offline RL fails to generalize to new, unseen environments. We propose pessimistic\nempirical risk minimization (PERM) and pessimistic proximal policy optimization (PPPO),\nwhich leverage pessimistic policy evaluation to guide policy learning and enhance generalization.\nWe show that both PERM and PPPO are capable of finding a near-optimal policy with ZSG. Our\n\nresult serves as a first step in understanding the foundation of the generalization phenomenon in\noffline reinforcement learning."
+          },
+          {
+            "id": "ecba1f4c9f0ddf8d8e70",
+            "source_id": "2503.07988v1",
+            "page": 13,
+            "score": 0.032002,
+            "text": "7\nConclusion and Future Work\n\nIn this work, we study the zero-shot generalization (ZSG) performance of offline reinforcement\nlearning (RL). We propose two offline RL frameworks, pessimistic empirical risk minimization and\npessimistic proximal policy optimization, and show that both of them can find the optimal policy\nwith ZSG ability. We also show that such a generalization property does not hold for offline RL\nwithout knowing the context information of the environment, which demonstrates the necessity of\nour proposed new algorithms. Currently, our theorems and algorithm design depend on the i.i.d.\nassumption of the environment selection. How to relax such an assumption remains an interesting\nfuture direction.\n\nAppendix\n\nWe provide missing proofs and theoretical results of our paper in the Appendix sections:\n\n• In Appendix A, we provide the missing results of Section 4.\nWe first provide the proof of\nProposition 4.1, then we analyze the suboptimality gap of the Pessimistic Value Iteration (PEVI)\n(Jin et al. [2021]) in the contextual linear MDP setting without context information."
+          },
+          {
+            "id": "f2337a43486e583edb89",
+            "source_id": "2503.07988v1",
+            "page": 1,
+            "score": 0.031258,
+            "text": "1\nIntroduction\n\nOffline reinforcement learning (RL) has become increasingly significant in modern RL because\nit eliminates the need for direct interaction between the agent and the environment; instead, it\nrelies solely on learning from an offline training dataset. However, in practical applications, the\noffline training dataset often originates from a different environment than the one of interest.\nThis discrepancy necessitates evaluating RL agents in a generalization setting, where the training\ninvolves a finite number of environments drawn from a specific distribution, and the testing is\nconducted on a distinct set of environments from the same or different distribution. This scenario is\ncommonly referred to as the zero-shot generalization (ZSG) challenge which has been studied in\nonline RL[Rajeswaran et al., 2017, Machado et al., 2018, Justesen et al., 2018, Packer et al., 2019,\nZhang et al., 2018a,b], as the agent receives no training data from the environments it is tested on."
+          }
+        ],
+        "new_ids": [
+          "171cf669fe6e1890ca0b",
+          "ecba1f4c9f0ddf8d8e70",
+          "f2337a43486e583edb89"
+        ],
+        "search_ms": 144.4
+      }
+    ],
+    "retrieved_ids": [
+      "171cf669fe6e1890ca0b",
+      "ecba1f4c9f0ddf8d8e70",
+      "f2337a43486e583edb89"
+    ],
+    "context_ids": [
+      "171cf669fe6e1890ca0b",
+      "ecba1f4c9f0ddf8d8e70",
+      "f2337a43486e583edb89"
+    ],
+    "elapsed_ms": 123127.2,
+    "query_id": "q16",
+    "question": "Which two meta-algorithms are proposed to obtain zero-shot generalization in offline reinforcement learning?",
+    "answerable": true,
+    "expected_answer": "Pessimistic empirical risk minimization (PERM) and pessimistic proximal policy optimization (PPPO).",
+    "gold": [
+      {
+        "source_id": "2503.07988v1",
+        "page": 1,
+        "evidence": "We propose pessimistic empirical risk minimization (PERM) and pessimistic proximal policy optimization (PPPO), which leverage pessimistic policy evaluation to guide policy learning and enhance generalization."
+      }
+    ],
+    "usage_delta": {
+      "prompt_tokens": 2282,
+      "completion_tokens": 221,
+      "total_tokens": 2503,
+      "calls": 3
+    }
+  },
+  {
+    "status": "answered",
+    "answer": "The acronym UCRL-M expands to **Upper Confidence Reinforcement Learning with several Modules** [4f41f102f0d1c50cfe6a].",
+    "citations": [
+      "4f41f102f0d1c50cfe6a"
+    ],
+    "events": [
+      {
+        "event": "search",
+        "tool": "search_hybrid",
+        "query": "UCRL-M",
+        "top_k": 3,
+        "results": [
+          {
+            "id": "4f41f102f0d1c50cfe6a",
+            "source_id": "2308.02391v1",
+            "page": 12,
+            "score": 0.032266,
+            "text": "4.3 UCRL-M: learning with τmix modules\n\nAlgorithm UCRL-M (Upper Confidence Reinforcement Learning with several Modules)\nis given in Algorithm 1. First, the algorithm initializes the different modules. Here, for\neach episode k and module m, it computes the empirical estimates of the reward and\nprobability transition as in (15) and (14). Then, it applies Extended Value Iteration\n(EVI) (Appendix B) to find a policy ̃πk and an optimistic MDP ̃\nMk ∈Mk according\nto (12). Finally, to explore the MDP at episode k, it first iterates on the MDP over\nτmix time-steps and discards these samples (ramping phase) to start the observations\nfrom the stationary distribution of the current policy. This phase is necessary to\nguarantee that observations within a module are nearly independent. Afterward, UCRLM explores the true MDP with the optimistic policy ̃πk and updates the empirical\nestimates with its observations.\n\nThe episode ends when the stopping criterion (18) is met. The next optimistic\npolicy for the episode k + 1 is found with respect to the observations inducing the\nconfidence region Mk that is built using all modules (see (17)).\n\nAlgorithm 1: The UCRL-M algorithm.\n\nInput: S and A."
+          },
+          {
+            "id": "aa4d0711b347fd948fa0",
+            "source_id": "2308.02391v1",
+            "page": 18,
+            "score": 0.032002,
+            "text": "7.2 Regret of UCRL-M on the multi-tier queueing network\n\nWe provide the performance of UCRL-M over the queueing network described above\nwhen the number of queues per tier n and the total number of jobs S vary. In Figure 4,\nwe display the average regret over 66 runs of the UCRL-M algorithm when n varies,\nand with parameters scaling with n to keep the systems proportionally comparable.\nMore precisely, the scaling in S and μ is such that as the number of queues increases,\nthe waiting time in each tier remains roughly identical for a job in each tier, and the\nscaling in the holding cost is also consistent with the increase of the number of jobs in\nthe system. Notice that for our choice of parameters, the network is not stable, so that\nwe use the UCRL-M algorithm under more general conditions than those assumed in\nSection 6 and even in Section 2.\n\n18"
+          },
+          {
+            "id": "e5c6afbf99e513cfce12",
+            "source_id": "2308.02391v1",
+            "page": 14,
+            "score": 0.031754,
+            "text": "4.5 Time complexity of UCRL-M\n\nProposition 1. The time complexity of UCRL-M is O(KSτmix + Ktevi + T), where\n\nK is the number of episodes and tevi the time complexity of extended value iteration.\nFurthermore, E(K) = O(log T).\n\nProof. The time complexity of lines 5 and 6 is O(KSτmix). The complexity of line\n7 is O(Ktevi). The complexity of line 8 is O(Kτmix). The complexity of line 9 is\nO(T −Kτmix), the number of useful observations. As for the expected number of\nepisodes, EK = O(log T) because of the doubling trick used to end the episodes (see\n[5] for example).\n\nNote that the total number of useful samples (excluding the steps made during the\nramping phases ) is T −Kτmix, and each module uses T −Kτmix\n\nτmix\nsamples. As for the\ntime complexity of EVI, each iteration of EVI is O(S3) and the number of iterations\ndepends on the starting point and is more difficult to estimate. In total, the time\ncomplexity does not really depend on τmix or tevi that only appears at the beginning\nof each episode, and the number of episodes is small w.r.t. T.\n\n5 Regret of UCRL-M"
+          }
+        ],
+        "new_ids": [
+          "4f41f102f0d1c50cfe6a",
+          "aa4d0711b347fd948fa0",
+          "e5c6afbf99e513cfce12"
+        ],
+        "search_ms": 84.9
+      },
+      {
+        "event": "search_done",
+        "content": "The acronym **UCRL-M** expands to **Upper Confidence Reinforcement Learning with several Modules**.\n\n[4f41f102f0d1c50cfe6a]"
+      },
+      {
+        "event": "final_answer",
+        "enough_evidence": true,
+        "citations": [
+          "4f41f102f0d1c50cfe6a"
+        ],
+        "valid": true,
+        "n_retrieved": 3
+      }
+    ],
+    "n_tool_calls": 1,
+    "searches": [
+      {
+        "event": "search",
+        "tool": "search_hybrid",
+        "query": "UCRL-M",
+        "top_k": 3,
+        "results": [
+          {
+            "id": "4f41f102f0d1c50cfe6a",
+            "source_id": "2308.02391v1",
+            "page": 12,
+            "score": 0.032266,
+            "text": "4.3 UCRL-M: learning with τmix modules\n\nAlgorithm UCRL-M (Upper Confidence Reinforcement Learning with several Modules)\nis given in Algorithm 1. First, the algorithm initializes the different modules. Here, for\neach episode k and module m, it computes the empirical estimates of the reward and\nprobability transition as in (15) and (14). Then, it applies Extended Value Iteration\n(EVI) (Appendix B) to find a policy ̃πk and an optimistic MDP ̃\nMk ∈Mk according\nto (12). Finally, to explore the MDP at episode k, it first iterates on the MDP over\nτmix time-steps and discards these samples (ramping phase) to start the observations\nfrom the stationary distribution of the current policy. This phase is necessary to\nguarantee that observations within a module are nearly independent. Afterward, UCRLM explores the true MDP with the optimistic policy ̃πk and updates the empirical\nestimates with its observations.\n\nThe episode ends when the stopping criterion (18) is met. The next optimistic\npolicy for the episode k + 1 is found with respect to the observations inducing the\nconfidence region Mk that is built using all modules (see (17)).\n\nAlgorithm 1: The UCRL-M algorithm.\n\nInput: S and A."
+          },
+          {
+            "id": "aa4d0711b347fd948fa0",
+            "source_id": "2308.02391v1",
+            "page": 18,
+            "score": 0.032002,
+            "text": "7.2 Regret of UCRL-M on the multi-tier queueing network\n\nWe provide the performance of UCRL-M over the queueing network described above\nwhen the number of queues per tier n and the total number of jobs S vary. In Figure 4,\nwe display the average regret over 66 runs of the UCRL-M algorithm when n varies,\nand with parameters scaling with n to keep the systems proportionally comparable.\nMore precisely, the scaling in S and μ is such that as the number of queues increases,\nthe waiting time in each tier remains roughly identical for a job in each tier, and the\nscaling in the holding cost is also consistent with the increase of the number of jobs in\nthe system. Notice that for our choice of parameters, the network is not stable, so that\nwe use the UCRL-M algorithm under more general conditions than those assumed in\nSection 6 and even in Section 2.\n\n18"
+          },
+          {
+            "id": "e5c6afbf99e513cfce12",
+            "source_id": "2308.02391v1",
+            "page": 14,
+            "score": 0.031754,
+            "text": "4.5 Time complexity of UCRL-M\n\nProposition 1. The time complexity of UCRL-M is O(KSτmix + Ktevi + T), where\n\nK is the number of episodes and tevi the time complexity of extended value iteration.\nFurthermore, E(K) = O(log T).\n\nProof. The time complexity of lines 5 and 6 is O(KSτmix). The complexity of line\n7 is O(Ktevi). The complexity of line 8 is O(Kτmix). The complexity of line 9 is\nO(T −Kτmix), the number of useful observations. As for the expected number of\nepisodes, EK = O(log T) because of the doubling trick used to end the episodes (see\n[5] for example).\n\nNote that the total number of useful samples (excluding the steps made during the\nramping phases ) is T −Kτmix, and each module uses T −Kτmix\n\nτmix\nsamples. As for the\ntime complexity of EVI, each iteration of EVI is O(S3) and the number of iterations\ndepends on the starting point and is more difficult to estimate. In total, the time\ncomplexity does not really depend on τmix or tevi that only appears at the beginning\nof each episode, and the number of episodes is small w.r.t. T.\n\n5 Regret of UCRL-M"
+          }
+        ],
+        "new_ids": [
+          "4f41f102f0d1c50cfe6a",
+          "aa4d0711b347fd948fa0",
+          "e5c6afbf99e513cfce12"
+        ],
+        "search_ms": 84.9
+      }
+    ],
+    "retrieved_ids": [
+      "4f41f102f0d1c50cfe6a",
+      "aa4d0711b347fd948fa0",
+      "e5c6afbf99e513cfce12"
+    ],
+    "context_ids": [
+      "4f41f102f0d1c50cfe6a",
+      "aa4d0711b347fd948fa0",
+      "e5c6afbf99e513cfce12"
+    ],
+    "elapsed_ms": 5891.7,
+    "query_id": "q17",
+    "question": "What does the acronym UCRL-M expand to?",
+    "answerable": true,
+    "expected_answer": "Upper Confidence Reinforcement Learning with several Modules.",
+    "gold": [
+      {
+        "source_id": "2308.02391v1",
+        "page": 12,
+        "evidence": "Algorithm UCRL-M (Upper Confidence Reinforcement Learning with several Modules) is given in Algorithm 1."
+      }
+    ],
+    "usage_delta": {
+      "prompt_tokens": 2534,
+      "completion_tokens": 139,
+      "total_tokens": 2673,
+      "calls": 3
+    }
+  },
+  {
+    "status": "answered",
+    "answer": "SORL incorporates shortcut models into the training process to regularize its policy to the behavior of the offline data, as proven through a novel theoretical analysis of shortcut models [23f02f5ff2b9eb4082f9]. This regularization is a key property enabling SORL's self-consistency and expressive inference under any compute budget [a5d8c9997ceec909b929]. The implementation details further highlight that training the shortcut model is a major change introduced in SORL compared to baseline methods [def7e63b8f703f1715b0].",
+    "citations": [
+      "23f02f5ff2b9eb4082f9",
+      "a5d8c9997ceec909b929",
+      "def7e63b8f703f1715b0"
+    ],
+    "events": [
+      {
+        "event": "search",
+        "tool": "search_hybrid",
+        "query": "SORL shortcut models training process purpose",
+        "top_k": 3,
+        "results": [
+          {
+            "id": "23f02f5ff2b9eb4082f9",
+            "source_id": "2505.22866v1",
+            "page": 2,
+            "score": 0.031746,
+            "text": "1. We introduce SORL, an efficient, one-stage training procedure for expressive policies that\ncan perform inference under any compute budget, including one-step inference. Despite\nits efficiency, SORL’s policy is still able to capture complex, multi-modal data distributions.\n\n2. Through a novel theoretical analysis of shortcut models, we prove that SORL’s training\nobjective regularizes SORL’s policy to the behavior of the offline data.\n\n3. Empirically, SORL achieves the best performance against 10 baselines on a range of\ndiverse tasks in offline RL.\n\n4. At test-time, SORL can scale with greater inference-time compute by increasing the\nnumber of inference steps (i.e. sequential scaling) and performing best-of-N sampling\n(i.e. parallel scaling). We show empirically that SORL can make up for a smaller trainingtime compute budget with a greater inference-time compute budget. SORL can also generalize\nto more inference steps at test time than the number of steps optimized during training."
+          },
+          {
+            "id": "a5d8c9997ceec909b929",
+            "source_id": "2505.22866v1",
+            "page": 11,
+            "score": 0.030769,
+            "text": "7\nDiscussion\n\nWe introduce SORL: a simple, efficient one-stage training procedure for expressive policies in offline\nRL. SORL’s key property is self-consistency, which enables expressive inference under any inference\nbudget, including one-step. Theoretically, we prove that SORL regularizes to the behavior policy, using\na novel analysis of shortcut models. Empirically, SORL demonstrates the best performance across a\nrange of diverse tasks. Additionally, SORL can be scaled at test-time, empirically demonstrating how\ngreater compute at inference-time can further improve performance. An avenue for future work is to\ninvestigate how SORL can incorporate adaptive test-time scaling [Pan et al., 2025, Ma et al., 2025],\nsuch as selecting the number of inference steps based on the gradient of the Q-function.\n\n11"
+          },
+          {
+            "id": "def7e63b8f703f1715b0",
+            "source_id": "2505.22866v1",
+            "page": 30,
+            "score": 0.030622,
+            "text": "E.2\nSORL Implementation Details\n\nOne of the strengths of SORL is its implementation simplicity. In order to implement SORL, we adapt\nPark et al. [2025]’s open-source implementations of various offline RL algorithms (FQL, IFQL, IQL,\nReBRAC), which are adapted from Park et al. [2024a]’s open-source dataset and codebase. The\nmajor changes are implementing and training the shortcut model, and removing additional training\ncomplexity from FQL (e.g. the teacher/student networks). To ensure a fair comparison, we keep all\nmajor shared hyperparameters the same between the baselines and SORL (e.g. network size, number\nof gradient steps, and discount factor), unless otherwise noted.\n\nValue Network.\nFollowing Park et al. [2025], we train two Q functions and use the mean of the\ntwo in the actor update (Equation 9). Like Park et al. [2025], we use the mean of the two Q functions\nfor the critic update (Equation 14), except for antmaze-large and antmaze-giant tasks, where\nwe follow Park et al. [2025] in using the minimum of the two values. The only change to the FQL\nbaseline’s value network is adding an input that encodes the number of inference steps used to\ngenerate the actions."
+          }
+        ],
+        "new_ids": [
+          "23f02f5ff2b9eb4082f9",
+          "a5d8c9997ceec909b929",
+          "def7e63b8f703f1715b0"
+        ],
+        "search_ms": 78.4
+      },
+      {
+        "event": "search_done",
+        "content": "SORL incorporates shortcut models into the training process to regularize the policy to the behavior of the offline data, as proven by a novel theoretical analysis of shortcut models. This regularizat"
+      },
+      {
+        "event": "final_answer",
+        "enough_evidence": true,
+        "citations": [
+          "23f02f5ff2b9eb4082f9",
+          "a5d8c9997ceec909b929",
+          "def7e63b8f703f1715b0"
+        ],
+        "valid": true,
+        "n_retrieved": 3
+      }
+    ],
+    "n_tool_calls": 1,
+    "searches": [
+      {
+        "event": "search",
+        "tool": "search_hybrid",
+        "query": "SORL shortcut models training process purpose",
+        "top_k": 3,
+        "results": [
+          {
+            "id": "23f02f5ff2b9eb4082f9",
+            "source_id": "2505.22866v1",
+            "page": 2,
+            "score": 0.031746,
+            "text": "1. We introduce SORL, an efficient, one-stage training procedure for expressive policies that\ncan perform inference under any compute budget, including one-step inference. Despite\nits efficiency, SORL’s policy is still able to capture complex, multi-modal data distributions.\n\n2. Through a novel theoretical analysis of shortcut models, we prove that SORL’s training\nobjective regularizes SORL’s policy to the behavior of the offline data.\n\n3. Empirically, SORL achieves the best performance against 10 baselines on a range of\ndiverse tasks in offline RL.\n\n4. At test-time, SORL can scale with greater inference-time compute by increasing the\nnumber of inference steps (i.e. sequential scaling) and performing best-of-N sampling\n(i.e. parallel scaling). We show empirically that SORL can make up for a smaller trainingtime compute budget with a greater inference-time compute budget. SORL can also generalize\nto more inference steps at test time than the number of steps optimized during training."
+          },
+          {
+            "id": "a5d8c9997ceec909b929",
+            "source_id": "2505.22866v1",
+            "page": 11,
+            "score": 0.030769,
+            "text": "7\nDiscussion\n\nWe introduce SORL: a simple, efficient one-stage training procedure for expressive policies in offline\nRL. SORL’s key property is self-consistency, which enables expressive inference under any inference\nbudget, including one-step. Theoretically, we prove that SORL regularizes to the behavior policy, using\na novel analysis of shortcut models. Empirically, SORL demonstrates the best performance across a\nrange of diverse tasks. Additionally, SORL can be scaled at test-time, empirically demonstrating how\ngreater compute at inference-time can further improve performance. An avenue for future work is to\ninvestigate how SORL can incorporate adaptive test-time scaling [Pan et al., 2025, Ma et al., 2025],\nsuch as selecting the number of inference steps based on the gradient of the Q-function.\n\n11"
+          },
+          {
+            "id": "def7e63b8f703f1715b0",
+            "source_id": "2505.22866v1",
+            "page": 30,
+            "score": 0.030622,
+            "text": "E.2\nSORL Implementation Details\n\nOne of the strengths of SORL is its implementation simplicity. In order to implement SORL, we adapt\nPark et al. [2025]’s open-source implementations of various offline RL algorithms (FQL, IFQL, IQL,\nReBRAC), which are adapted from Park et al. [2024a]’s open-source dataset and codebase. The\nmajor changes are implementing and training the shortcut model, and removing additional training\ncomplexity from FQL (e.g. the teacher/student networks). To ensure a fair comparison, we keep all\nmajor shared hyperparameters the same between the baselines and SORL (e.g. network size, number\nof gradient steps, and discount factor), unless otherwise noted.\n\nValue Network.\nFollowing Park et al. [2025], we train two Q functions and use the mean of the\ntwo in the actor update (Equation 9). Like Park et al. [2025], we use the mean of the two Q functions\nfor the critic update (Equation 14), except for antmaze-large and antmaze-giant tasks, where\nwe follow Park et al. [2025] in using the minimum of the two values. The only change to the FQL\nbaseline’s value network is adding an input that encodes the number of inference steps used to\ngenerate the actions."
+          }
+        ],
+        "new_ids": [
+          "23f02f5ff2b9eb4082f9",
+          "a5d8c9997ceec909b929",
+          "def7e63b8f703f1715b0"
+        ],
+        "search_ms": 78.4
+      }
+    ],
+    "retrieved_ids": [
+      "23f02f5ff2b9eb4082f9",
+      "a5d8c9997ceec909b929",
+      "def7e63b8f703f1715b0"
+    ],
+    "context_ids": [
+      "23f02f5ff2b9eb4082f9",
+      "a5d8c9997ceec909b929",
+      "def7e63b8f703f1715b0"
+    ],
+    "elapsed_ms": 6845.9,
+    "query_id": "q18",
+    "question": "Why does SORL incorporate shortcut models into the training process?",
+    "answerable": true,
+    "expected_answer": "To add self-consistency so the policy can generate high quality samples under any inference budget.",
+    "gold": [
+      {
+        "source_id": "2505.22866v1",
+        "page": 2,
+        "evidence": "Our key insight is to leverage shortcut models [Frans et al., 2024], a novel class of generative models, in order to incorporate self-consistency into the training process, thus allowing the policy to generate high quality samples under any inference budget."
+      }
+    ],
+    "usage_delta": {
+      "prompt_tokens": 2375,
+      "completion_tokens": 381,
+      "total_tokens": 2756,
+      "calls": 3
+    }
+  },
+  {
+    "status": "answered",
+    "answer": "Sparse-Reg regularizes the sparsity of the learned policy or value function when learning from small datasets in offline reinforcement learning [cf12cac5882d85a30193, 7678c005ed27f50c1f11, 5f1560878c6e4159f091].",
+    "citations": [
+      "5f1560878c6e4159f091",
+      "7678c005ed27f50c1f11",
+      "cf12cac5882d85a30193"
+    ],
+    "events": [
+      {
+        "event": "search",
+        "tool": "search_hybrid",
+        "query": "Sparse-Reg regularize small datasets 2025 reinforcement learning optimal control",
+        "top_k": 3,
+        "results": [
+          {
+            "id": "cf12cac5882d85a30193",
+            "source_id": "2506.17155v2",
+            "page": 1,
+            "score": 0.032787,
+            "text": "arXiv:2506.17155v2 [cs.LG] 26 Jun 2025\n\nSparse-Reg: Improving Sample Complexity in Offline\nReinforcement Learning using Sparsity\n\nSamin Yeasar Arnob1,2, Scott Fujimoto3, Doina Precup1,2\n\nsamin.arnob@mail.mcgill.ca\n\n1Department of Computing Science, McGill University, Canada\n2Mila Quebec AI Institute\n3Meta FAIR\n\nAbstract\n\nIn this paper, we investigate the use of small datasets in the context of offline reinforcement learning (RL). While many common offline RL benchmarks employ\ndatasets with over a million data points, many offline RL applications rely on considerably smaller datasets. We show that offline RL algorithms can overfit on small\ndatasets, resulting in poor performance.\nTo address this challenge, we introduce\n\"Sparse-Reg\": a regularization technique based on sparsity to mitigate overfitting\nin offline reinforcement learning, enabling effective learning in limited data settings and outperforming state-of-the-art baselines in continuous control. Codebase:\nhttps://github.com/SaminYeasar/sparse_reg"
+          },
+          {
+            "id": "7678c005ed27f50c1f11",
+            "source_id": "2506.17155v2",
+            "page": 1,
+            "score": 0.03125,
+            "text": "1\nIntroduction\n\nReinforcement Learning (RL) is a powerful approach to solving complex problems, but its application\ncan be challenging due to the need for active interaction with the environment. In many scenarios,\ncollecting training data can be challenging or resource-intensive. Offline RL offers an alternative by\nleveraging pre-existing datasets for training, avoiding any real-time interaction.\n\nUnsurprisingly,\nthe dataset plays a significant role in the performance of an offline\nagent (Schweighofer et al., 2021; Yarats et al., 2022; Lambert et al., 2022) While most offline\nRL benchmarks emphasize large datasets (one million samples or more) (Fu et al., 2020; Gulcehre\net al., 2020), many application scenarios depend on learning from limited data samples. As a result,\ndeveloping offline RL algorithms that perform well with small datasets is crucial for advancing the\nfield of RL.\n\nThis paper examines offline RL with small datasets in continuous control and the use of sparsity to\naddress limited data. We find the following core insights:"
+          },
+          {
+            "id": "d7c6c4009ef1689927f1",
+            "source_id": "2511.10383v2",
+            "page": 1,
+            "score": 0.03031,
+            "text": "ABSTRACT Continuous-time stochastic processes underlie many natural and engineered systems. In\nhealthcare, autonomous driving, and industrial control, direct interaction with the environment is often\nunsafe or impractical, motivating offline reinforcement learning from historical data. However, there is\nlimited statistical understanding of the approximation errors inherent in learning policies from offline\ndatasets. We address this by linking reinforcement learning to the Hamilton-Jacobi-Bellman equation and\nproposing an operator-theoretic algorithm based on a simple dynamic programming recursion. Specifically,\nwe represent our world model in terms of the infinitesimal generator of controlled diffusion processes\nlearned in a reproducing kernel Hilbert space. By integrating statistical learning methods and operator theory,\nwe establish global convergence of the value function under sufficiently small generator-approximation\nerror and derive explicit finite-sample guarantees with bounds tied directly to system properties such\nas smoothness and stability."
+          }
+        ],
+        "new_ids": [
+          "cf12cac5882d85a30193",
+          "7678c005ed27f50c1f11",
+          "d7c6c4009ef1689927f1"
+        ],
+        "search_ms": 115.6
+      },
+      {
+        "event": "search",
+        "tool": "search_hybrid",
+        "query": "Sparse-Reg regularizes sparsity small datasets 2025 arXiv:2506.17155v2",
+        "top_k": 3,
+        "results": [
+          {
+            "id": "cf12cac5882d85a30193",
+            "source_id": "2506.17155v2",
+            "page": 1,
+            "score": 0.032787,
+            "text": "arXiv:2506.17155v2 [cs.LG] 26 Jun 2025\n\nSparse-Reg: Improving Sample Complexity in Offline\nReinforcement Learning using Sparsity\n\nSamin Yeasar Arnob1,2, Scott Fujimoto3, Doina Precup1,2\n\nsamin.arnob@mail.mcgill.ca\n\n1Department of Computing Science, McGill University, Canada\n2Mila Quebec AI Institute\n3Meta FAIR\n\nAbstract\n\nIn this paper, we investigate the use of small datasets in the context of offline reinforcement learning (RL). While many common offline RL benchmarks employ\ndatasets with over a million data points, many offline RL applications rely on considerably smaller datasets. We show that offline RL algorithms can overfit on small\ndatasets, resulting in poor performance.\nTo address this challenge, we introduce\n\"Sparse-Reg\": a regularization technique based on sparsity to mitigate overfitting\nin offline reinforcement learning, enabling effective learning in limited data settings and outperforming state-of-the-art baselines in continuous control. Codebase:\nhttps://github.com/SaminYeasar/sparse_reg"
+          },
+          {
+            "id": "5f1560878c6e4159f091",
+            "source_id": "2506.17155v2",
+            "page": 3,
+            "score": 0.031281,
+            "text": "We take a batch of data from the offline training dataset D, calculate the gradient through forward\nand backward propagation, and then use Equation (1) to generate masks for the neural networks.\nPeriodic update of sparsity is found to be more effective for RL (Arnob et al., 2025). To achieve\nthe best-regularized model using sparse regularization, we aim to apply sparsity repeatedly while\nupdating the associated parameters. In every 5k gradient steps, we periodically update the masks only\nfor 200k training steps. Through an ablation study, we demonstrate the impact of applying periodic\nsparse regularization in Section 5.5.\n\nA code snippet to integrate the method into the offline RL algorithms is provided in Figure 11.\n\n3"
+          },
+          {
+            "id": "5cfd55bbf933ae6a4414",
+            "source_id": "2506.17155v2",
+            "page": 9,
+            "score": 0.030622,
+            "text": "100K\n544.22\n10574.44\n11116.75\n10987.68\n10728.38\n±994.11\n±483.28\n± 65.37\n±118.84\n±196.58\n\nTable 3: Performance of IQL-Sparse-Reg at various sparsity levels for different data sizes for HalfCheetahExpert task.\n\nPerformance for Medium dataset:\nWe present detailed benchmark on Medium dataset here in\nTable 4.\n\nAggregated Normalized Performance:\nWe present additional results on the learning curve of\naggregated normalized performance for the D4RL Fu et al. (2020) Medium dataset in Figure 7. These\nresults further demonstrate that applying sparse regularization enhances the sampling complexity of\noffline RL algorithms.\n\nPerformance for Mixed Dataset:\nOffline datasets can originate from a mixture of different\ndistributions, which can introduce variability in the data. To account for this in Table 5, we present\nthe performance of IQL on two environments, HalfCheetah and Hopper, using datasets of 5k\nand 10k samples on mixed datasets: Medium-Replay and Expert-Replay.\n\n9"
+          }
+        ],
+        "new_ids": [
+          "5f1560878c6e4159f091",
+          "5cfd55bbf933ae6a4414"
+        ],
+        "search_ms": 140.4
+      },
+      {
+        "event": "search_done",
+        "content": "Based on the retrieved evidence, Sparse-Reg regularizes the **neural network parameters** by applying sparsity-inducing masks to mitigate overfitting when learning from small datasets in offline reinf"
+      },
+      {
+        "event": "final_answer",
+        "enough_evidence": true,
+        "citations": [
+          "5f1560878c6e4159f091",
+          "7678c005ed27f50c1f11",
+          "cf12cac5882d85a30193"
+        ],
+        "valid": true,
+        "n_retrieved": 5
+      }
+    ],
+    "n_tool_calls": 2,
+    "searches": [
+      {
+        "event": "search",
+        "tool": "search_hybrid",
+        "query": "Sparse-Reg regularize small datasets 2025 reinforcement learning optimal control",
+        "top_k": 3,
+        "results": [
+          {
+            "id": "cf12cac5882d85a30193",
+            "source_id": "2506.17155v2",
+            "page": 1,
+            "score": 0.032787,
+            "text": "arXiv:2506.17155v2 [cs.LG] 26 Jun 2025\n\nSparse-Reg: Improving Sample Complexity in Offline\nReinforcement Learning using Sparsity\n\nSamin Yeasar Arnob1,2, Scott Fujimoto3, Doina Precup1,2\n\nsamin.arnob@mail.mcgill.ca\n\n1Department of Computing Science, McGill University, Canada\n2Mila Quebec AI Institute\n3Meta FAIR\n\nAbstract\n\nIn this paper, we investigate the use of small datasets in the context of offline reinforcement learning (RL). While many common offline RL benchmarks employ\ndatasets with over a million data points, many offline RL applications rely on considerably smaller datasets. We show that offline RL algorithms can overfit on small\ndatasets, resulting in poor performance.\nTo address this challenge, we introduce\n\"Sparse-Reg\": a regularization technique based on sparsity to mitigate overfitting\nin offline reinforcement learning, enabling effective learning in limited data settings and outperforming state-of-the-art baselines in continuous control. Codebase:\nhttps://github.com/SaminYeasar/sparse_reg"
+          },
+          {
+            "id": "7678c005ed27f50c1f11",
+            "source_id": "2506.17155v2",
+            "page": 1,
+            "score": 0.03125,
+            "text": "1\nIntroduction\n\nReinforcement Learning (RL) is a powerful approach to solving complex problems, but its application\ncan be challenging due to the need for active interaction with the environment. In many scenarios,\ncollecting training data can be challenging or resource-intensive. Offline RL offers an alternative by\nleveraging pre-existing datasets for training, avoiding any real-time interaction.\n\nUnsurprisingly,\nthe dataset plays a significant role in the performance of an offline\nagent (Schweighofer et al., 2021; Yarats et al., 2022; Lambert et al., 2022) While most offline\nRL benchmarks emphasize large datasets (one million samples or more) (Fu et al., 2020; Gulcehre\net al., 2020), many application scenarios depend on learning from limited data samples. As a result,\ndeveloping offline RL algorithms that perform well with small datasets is crucial for advancing the\nfield of RL.\n\nThis paper examines offline RL with small datasets in continuous control and the use of sparsity to\naddress limited data. We find the following core insights:"
+          },
+          {
+            "id": "d7c6c4009ef1689927f1",
+            "source_id": "2511.10383v2",
+            "page": 1,
+            "score": 0.03031,
+            "text": "ABSTRACT Continuous-time stochastic processes underlie many natural and engineered systems. In\nhealthcare, autonomous driving, and industrial control, direct interaction with the environment is often\nunsafe or impractical, motivating offline reinforcement learning from historical data. However, there is\nlimited statistical understanding of the approximation errors inherent in learning policies from offline\ndatasets. We address this by linking reinforcement learning to the Hamilton-Jacobi-Bellman equation and\nproposing an operator-theoretic algorithm based on a simple dynamic programming recursion. Specifically,\nwe represent our world model in terms of the infinitesimal generator of controlled diffusion processes\nlearned in a reproducing kernel Hilbert space. By integrating statistical learning methods and operator theory,\nwe establish global convergence of the value function under sufficiently small generator-approximation\nerror and derive explicit finite-sample guarantees with bounds tied directly to system properties such\nas smoothness and stability."
+          }
+        ],
+        "new_ids": [
+          "cf12cac5882d85a30193",
+          "7678c005ed27f50c1f11",
+          "d7c6c4009ef1689927f1"
+        ],
+        "search_ms": 115.6
+      },
+      {
+        "event": "search",
+        "tool": "search_hybrid",
+        "query": "Sparse-Reg regularizes sparsity small datasets 2025 arXiv:2506.17155v2",
+        "top_k": 3,
+        "results": [
+          {
+            "id": "cf12cac5882d85a30193",
+            "source_id": "2506.17155v2",
+            "page": 1,
+            "score": 0.032787,
+            "text": "arXiv:2506.17155v2 [cs.LG] 26 Jun 2025\n\nSparse-Reg: Improving Sample Complexity in Offline\nReinforcement Learning using Sparsity\n\nSamin Yeasar Arnob1,2, Scott Fujimoto3, Doina Precup1,2\n\nsamin.arnob@mail.mcgill.ca\n\n1Department of Computing Science, McGill University, Canada\n2Mila Quebec AI Institute\n3Meta FAIR\n\nAbstract\n\nIn this paper, we investigate the use of small datasets in the context of offline reinforcement learning (RL). While many common offline RL benchmarks employ\ndatasets with over a million data points, many offline RL applications rely on considerably smaller datasets. We show that offline RL algorithms can overfit on small\ndatasets, resulting in poor performance.\nTo address this challenge, we introduce\n\"Sparse-Reg\": a regularization technique based on sparsity to mitigate overfitting\nin offline reinforcement learning, enabling effective learning in limited data settings and outperforming state-of-the-art baselines in continuous control. Codebase:\nhttps://github.com/SaminYeasar/sparse_reg"
+          },
+          {
+            "id": "5f1560878c6e4159f091",
+            "source_id": "2506.17155v2",
+            "page": 3,
+            "score": 0.031281,
+            "text": "We take a batch of data from the offline training dataset D, calculate the gradient through forward\nand backward propagation, and then use Equation (1) to generate masks for the neural networks.\nPeriodic update of sparsity is found to be more effective for RL (Arnob et al., 2025). To achieve\nthe best-regularized model using sparse regularization, we aim to apply sparsity repeatedly while\nupdating the associated parameters. In every 5k gradient steps, we periodically update the masks only\nfor 200k training steps. Through an ablation study, we demonstrate the impact of applying periodic\nsparse regularization in Section 5.5.\n\nA code snippet to integrate the method into the offline RL algorithms is provided in Figure 11.\n\n3"
+          },
+          {
+            "id": "5cfd55bbf933ae6a4414",
+            "source_id": "2506.17155v2",
+            "page": 9,
+            "score": 0.030622,
+            "text": "100K\n544.22\n10574.44\n11116.75\n10987.68\n10728.38\n±994.11\n±483.28\n± 65.37\n±118.84\n±196.58\n\nTable 3: Performance of IQL-Sparse-Reg at various sparsity levels for different data sizes for HalfCheetahExpert task.\n\nPerformance for Medium dataset:\nWe present detailed benchmark on Medium dataset here in\nTable 4.\n\nAggregated Normalized Performance:\nWe present additional results on the learning curve of\naggregated normalized performance for the D4RL Fu et al. (2020) Medium dataset in Figure 7. These\nresults further demonstrate that applying sparse regularization enhances the sampling complexity of\noffline RL algorithms.\n\nPerformance for Mixed Dataset:\nOffline datasets can originate from a mixture of different\ndistributions, which can introduce variability in the data. To account for this in Table 5, we present\nthe performance of IQL on two environments, HalfCheetah and Hopper, using datasets of 5k\nand 10k samples on mixed datasets: Medium-Replay and Expert-Replay.\n\n9"
+          }
+        ],
+        "new_ids": [
+          "5f1560878c6e4159f091",
+          "5cfd55bbf933ae6a4414"
+        ],
+        "search_ms": 140.4
+      }
+    ],
+    "retrieved_ids": [
+      "5cfd55bbf933ae6a4414",
+      "5f1560878c6e4159f091",
+      "7678c005ed27f50c1f11",
+      "cf12cac5882d85a30193",
+      "d7c6c4009ef1689927f1"
+    ],
+    "context_ids": [
+      "cf12cac5882d85a30193",
+      "7678c005ed27f50c1f11",
+      "d7c6c4009ef1689927f1",
+      "5f1560878c6e4159f091",
+      "5cfd55bbf933ae6a4414"
+    ],
+    "elapsed_ms": 47915.4,
+    "query_id": "q19",
+    "question": "Among the 2025 papers, what does Sparse-Reg regularize when learning from small datasets?",
+    "answerable": true,
+    "expected_answer": "Model complexity, via sparse regularization.",
+    "gold": [
+      {
+        "source_id": "2506.17155v2",
+        "page": 3,
+        "evidence": "We propose using sparse regularization to regularize model complexity when learning from small datasets."
+      }
+    ],
+    "usage_delta": {
+      "prompt_tokens": 4101,
+      "completion_tokens": 363,
+      "total_tokens": 4464,
+      "calls": 4
+    }
+  },
+  {
+    "status": "answered",
+    "answer": "The structural condition identified as enabling sample efficiency is pushforward coverability [5ee52cd69d1a772343ec][2ddbe92d844603bb704b].",
+    "citations": [
+      "2ddbe92d844603bb704b",
+      "5ee52cd69d1a772343ec"
+    ],
+    "events": [
+      {
+        "event": "search",
+        "tool": "search_hybrid",
+        "query": "structural condition latent dynamics sample efficiency reinforcement learning optimal control",
+        "top_k": 3,
+        "results": [
+          {
+            "id": "6d5603b2279e9e58165a",
+            "source_id": "2410.17904v1",
+            "page": 1,
+            "score": 0.032018,
+            "text": "1\nIntroduction\n\nMany application domains for reinforcement learning (RL) require the agent to operate on rich, highdimensional observations of the environment, such as images or text [WSD15; LFDA16; KFPM21; NRKFG22;\nBak+22; Bro+22]. However, the environment itself can often be summarized by latent dynamics for a\nlow-dimensional or otherwise simple latent state space. The decoupling of latent dynamics from the complex\nobservation process naturally suggests a modular framework for algorithm design: first learn a representation\nthat decodes the latent state from observations, then apply a reinforcement learning algorithm for the latent\ndynamics on top of the learned representation. This paper investigates the algorithmic and statistical\nfoundations of this framework. We ask: Can we take existing algorithms and sample complexity guarantees for\nreinforcement learning in the latent state space and lift them to the observation space in a modular fashion?"
+          },
+          {
+            "id": "5ee52cd69d1a772343ec",
+            "source_id": "2410.17904v1",
+            "page": 1,
+            "score": 0.032002,
+            "text": "This paper addresses the question of reinforcement learning under general latent dynamics from a\nstatistical and algorithmic perspective. On the statistical side, our main negative result shows that\nmost well-studied settings for reinforcement learning with function approximation become intractable\nwhen composed with rich observations; we complement this with a positive result, identifying latent\npushforward coverability as a general condition that enables statistical tractability. Algorithmically, we\ndevelop provably efficient observable-to-latent reductions—that is, reductions that transform an arbitrary\nalgorithm for the latent MDP into an algorithm that can operate on rich observations—in two settings:\none where the agent has access to hindsight observations of the latent dynamics [LADZ23], and one where\nthe agent can estimate self-predictive latent models [SAGHCB20]. Together, our results serve as a first\nstep toward a unified statistical and algorithmic theory for reinforcement learning under latent dynamics."
+          },
+          {
+            "id": "2ddbe92d844603bb704b",
+            "source_id": "2410.17904v1",
+            "page": 2,
+            "score": 0.031319,
+            "text": "If a base MDP class is tractable when observed directly, is the corresponding latent-dynamics problem\n\ntractable?\n\nStatistical modularity adopts a minimax perspective by assuming that the base MDP lies in a given class, and\ndemands that the sample complexity of the latent-dynamics setting is controlled by a natural bound on the\nsample complexity of the base MDP class. We show, perhaps surprisingly, that most well-studied reinforcement\nlearning settings involving function approximation [Li09; RVR13; JKALS17; SJKAL19; MJTS20; DVRZ19;\nAJSWY20; WSY20; ZGS21; WAS21; WAJAYJS21; Du+21; JLM21; FKQR21] do not admit statistical\nmodularity (Theorem 3.1). In other words, statistical tractability of an MDP class does not extend to the latentdynamics setting. We complement these negative findings with a positive result, identifying pushforward coverability as a general structural condition on the latent dynamics that enables sample efficiency (Theorem 3.2)."
+          }
+        ],
+        "new_ids": [
+          "6d5603b2279e9e58165a",
+          "5ee52cd69d1a772343ec",
+          "2ddbe92d844603bb704b"
+        ],
+        "search_ms": 88.5
+      },
+      {
+        "event": "search_done",
+        "content": "The structural condition identified as enabling sample efficiency is **latent pushforward coverability** [5ee52cd69d1a772343ec, 2ddbe92d844603bb704b]."
+      },
+      {
+        "event": "final_answer",
+        "enough_evidence": true,
+        "citations": [
+          "2ddbe92d844603bb704b",
+          "5ee52cd69d1a772343ec"
+        ],
+        "valid": true,
+        "n_retrieved": 3
+      }
+    ],
+    "n_tool_calls": 1,
+    "searches": [
+      {
+        "event": "search",
+        "tool": "search_hybrid",
+        "query": "structural condition latent dynamics sample efficiency reinforcement learning optimal control",
+        "top_k": 3,
+        "results": [
+          {
+            "id": "6d5603b2279e9e58165a",
+            "source_id": "2410.17904v1",
+            "page": 1,
+            "score": 0.032018,
+            "text": "1\nIntroduction\n\nMany application domains for reinforcement learning (RL) require the agent to operate on rich, highdimensional observations of the environment, such as images or text [WSD15; LFDA16; KFPM21; NRKFG22;\nBak+22; Bro+22]. However, the environment itself can often be summarized by latent dynamics for a\nlow-dimensional or otherwise simple latent state space. The decoupling of latent dynamics from the complex\nobservation process naturally suggests a modular framework for algorithm design: first learn a representation\nthat decodes the latent state from observations, then apply a reinforcement learning algorithm for the latent\ndynamics on top of the learned representation. This paper investigates the algorithmic and statistical\nfoundations of this framework. We ask: Can we take existing algorithms and sample complexity guarantees for\nreinforcement learning in the latent state space and lift them to the observation space in a modular fashion?"
+          },
+          {
+            "id": "5ee52cd69d1a772343ec",
+            "source_id": "2410.17904v1",
+            "page": 1,
+            "score": 0.032002,
+            "text": "This paper addresses the question of reinforcement learning under general latent dynamics from a\nstatistical and algorithmic perspective. On the statistical side, our main negative result shows that\nmost well-studied settings for reinforcement learning with function approximation become intractable\nwhen composed with rich observations; we complement this with a positive result, identifying latent\npushforward coverability as a general condition that enables statistical tractability. Algorithmically, we\ndevelop provably efficient observable-to-latent reductions—that is, reductions that transform an arbitrary\nalgorithm for the latent MDP into an algorithm that can operate on rich observations—in two settings:\none where the agent has access to hindsight observations of the latent dynamics [LADZ23], and one where\nthe agent can estimate self-predictive latent models [SAGHCB20]. Together, our results serve as a first\nstep toward a unified statistical and algorithmic theory for reinforcement learning under latent dynamics."
+          },
+          {
+            "id": "2ddbe92d844603bb704b",
+            "source_id": "2410.17904v1",
+            "page": 2,
+            "score": 0.031319,
+            "text": "If a base MDP class is tractable when observed directly, is the corresponding latent-dynamics problem\n\ntractable?\n\nStatistical modularity adopts a minimax perspective by assuming that the base MDP lies in a given class, and\ndemands that the sample complexity of the latent-dynamics setting is controlled by a natural bound on the\nsample complexity of the base MDP class. We show, perhaps surprisingly, that most well-studied reinforcement\nlearning settings involving function approximation [Li09; RVR13; JKALS17; SJKAL19; MJTS20; DVRZ19;\nAJSWY20; WSY20; ZGS21; WAS21; WAJAYJS21; Du+21; JLM21; FKQR21] do not admit statistical\nmodularity (Theorem 3.1). In other words, statistical tractability of an MDP class does not extend to the latentdynamics setting. We complement these negative findings with a positive result, identifying pushforward coverability as a general structural condition on the latent dynamics that enables sample efficiency (Theorem 3.2)."
+          }
+        ],
+        "new_ids": [
+          "6d5603b2279e9e58165a",
+          "5ee52cd69d1a772343ec",
+          "2ddbe92d844603bb704b"
+        ],
+        "search_ms": 88.5
+      }
+    ],
+    "retrieved_ids": [
+      "2ddbe92d844603bb704b",
+      "5ee52cd69d1a772343ec",
+      "6d5603b2279e9e58165a"
+    ],
+    "context_ids": [
+      "6d5603b2279e9e58165a",
+      "5ee52cd69d1a772343ec",
+      "2ddbe92d844603bb704b"
+    ],
+    "elapsed_ms": 7501.7,
+    "query_id": "q20",
+    "question": "Which structural condition on the latent dynamics is identified as enabling sample efficiency?",
+    "answerable": true,
+    "expected_answer": "Pushforward coverability.",
+    "gold": [
+      {
+        "source_id": "2410.17904v1",
+        "page": 2,
+        "evidence": "We complement these negative findings with a positive result, identifying pushforward coverability as a general structural condition on the latent dynamics that enables sample efficiency (Theorem 3.2)."
+      }
+    ],
+    "usage_delta": {
+      "prompt_tokens": 2241,
+      "completion_tokens": 187,
+      "total_tokens": 2428,
+      "calls": 3
+    }
+  },
+  {
+    "status": "abstain",
+    "answer": "Không đủ bằng chứng để trả lời.",
+    "citations": [],
+    "events": [
+      {
+        "event": "search",
+        "tool": "search_hybrid",
+        "query": "autonomous driving offline RL benchmark GPU model number of GPUs",
+        "top_k": 3,
+        "results": [
+          {
+            "id": "04976b3e7d391aac2e0b",
+            "source_id": "2404.02429v1",
+            "page": 1,
+            "score": 0.032522,
+            "text": "Contributions: Our primary contribution is the incorporation of real-world human-driving datasets as well as synthetic\ndatasets in offline reinforcement learning for autonomous\ndriving tasks. We employ the US Highway 101 dataset [18]\ncollected by the next generation simulator (NGSIM) project\nof the Federal Highway Administration (FHWA) [19]. To\nprovide a useful dataset and benchmark, we pre-process the\nNGSIM dataset by labeling the reward, correcting errors,\nand normalizing values. We also propose a unified partially\nobservable Markov decision process (POMDP) that can\nbe applied across various driving scenarios. Finally, we\nbenchmark offline reinforcement learning algorithms within\nthe FLOW framework and extend its functionality.1"
+          },
+          {
+            "id": "1b0def9e0f37700ea600",
+            "source_id": "2404.02429v1",
+            "page": 1,
+            "score": 0.032018,
+            "text": "Despite recent attention to offline reinforcement learning, research on autonomous driving still heavily relies\non online reinforcement learning [12]. Some recent efforts\nhave attempted to shift the research paradigm toward offline\nreinforcement learning, but they are still in the early stages [9],\n[13], [14]. For example, [13] provides synthetic datasets\nand benchmarks using the FLOW framework [15]. While\nit serves as a valuable dataset and benchmark in offline\nreinforcement learning studies, it focuses exclusively on\nacceleration maneuvers, neglecting lane-changing and presenting unrealistic, simplified driving scenarios. Additionally, it\nassumes that safety modules can prevent all accidents, which\nis an unrealistic assumption [16]. Another challenge with\nexisting benchmarks is the absence of real-world datasets.\nMost studies rely solely on synthetic datasets collected by\nonline reinforcement learning agents without incorporating\nany real-world human-driving datasets [13], [14], [17]."
+          },
+          {
+            "id": "801141df80ac94ac32ca",
+            "source_id": "2404.02429v1",
+            "page": 6,
+            "score": 0.031754,
+            "text": "VI. CONCLUSION\nThis study presents an autonomous driving framework\nbased on offline reinforcement learning, accompanied by\nbenchmark performances and datasets that are readily accessible and reproducible. The driving scenarios within the\nFLOW framework have been expanded to include three\nrealistic road structures: Cut-in, Lane Reduction, and Highway.\nA unified POMDP has been developed, applicable to all\ndriving scenarios. The contribution of this work extends\nbeyond providing synthetic datasets obtained from online\nreinforcement learning for each driving scenario, as it also\nincludes pre-processed real-world driving datasets, such as\nthe NGSIM dataset, aligned with the proposed POMDP. As\na result, interesting insights have been obtained through the\nanalysis of the results.\n\nIn summary, the primary aim of this study is to utilize\npre-collected datasets to facilitate research in the field of\nautonomous driving with offline reinforcement learning. We\nexpect to accelerate progress in this domain and open up new\navenues for further exploration."
+          }
+        ],
+        "new_ids": [
+          "04976b3e7d391aac2e0b",
+          "1b0def9e0f37700ea600",
+          "801141df80ac94ac32ca"
+        ],
+        "search_ms": 61.5
+      },
+      {
+        "event": "search_done",
+        "content": "I do not have enough evidence to answer the question about the GPU model and the number of GPUs used to train the models in the autonomous driving offline RL benchmark. The retrieved chunks do not con"
+      },
+      {
+        "event": "final_answer",
+        "enough_evidence": false,
+        "citations": [],
+        "valid": false,
+        "n_retrieved": 3
+      }
+    ],
+    "n_tool_calls": 1,
+    "searches": [
+      {
+        "event": "search",
+        "tool": "search_hybrid",
+        "query": "autonomous driving offline RL benchmark GPU model number of GPUs",
+        "top_k": 3,
+        "results": [
+          {
+            "id": "04976b3e7d391aac2e0b",
+            "source_id": "2404.02429v1",
+            "page": 1,
+            "score": 0.032522,
+            "text": "Contributions: Our primary contribution is the incorporation of real-world human-driving datasets as well as synthetic\ndatasets in offline reinforcement learning for autonomous\ndriving tasks. We employ the US Highway 101 dataset [18]\ncollected by the next generation simulator (NGSIM) project\nof the Federal Highway Administration (FHWA) [19]. To\nprovide a useful dataset and benchmark, we pre-process the\nNGSIM dataset by labeling the reward, correcting errors,\nand normalizing values. We also propose a unified partially\nobservable Markov decision process (POMDP) that can\nbe applied across various driving scenarios. Finally, we\nbenchmark offline reinforcement learning algorithms within\nthe FLOW framework and extend its functionality.1"
+          },
+          {
+            "id": "1b0def9e0f37700ea600",
+            "source_id": "2404.02429v1",
+            "page": 1,
+            "score": 0.032018,
+            "text": "Despite recent attention to offline reinforcement learning, research on autonomous driving still heavily relies\non online reinforcement learning [12]. Some recent efforts\nhave attempted to shift the research paradigm toward offline\nreinforcement learning, but they are still in the early stages [9],\n[13], [14]. For example, [13] provides synthetic datasets\nand benchmarks using the FLOW framework [15]. While\nit serves as a valuable dataset and benchmark in offline\nreinforcement learning studies, it focuses exclusively on\nacceleration maneuvers, neglecting lane-changing and presenting unrealistic, simplified driving scenarios. Additionally, it\nassumes that safety modules can prevent all accidents, which\nis an unrealistic assumption [16]. Another challenge with\nexisting benchmarks is the absence of real-world datasets.\nMost studies rely solely on synthetic datasets collected by\nonline reinforcement learning agents without incorporating\nany real-world human-driving datasets [13], [14], [17]."
+          },
+          {
+            "id": "801141df80ac94ac32ca",
+            "source_id": "2404.02429v1",
+            "page": 6,
+            "score": 0.031754,
+            "text": "VI. CONCLUSION\nThis study presents an autonomous driving framework\nbased on offline reinforcement learning, accompanied by\nbenchmark performances and datasets that are readily accessible and reproducible. The driving scenarios within the\nFLOW framework have been expanded to include three\nrealistic road structures: Cut-in, Lane Reduction, and Highway.\nA unified POMDP has been developed, applicable to all\ndriving scenarios. The contribution of this work extends\nbeyond providing synthetic datasets obtained from online\nreinforcement learning for each driving scenario, as it also\nincludes pre-processed real-world driving datasets, such as\nthe NGSIM dataset, aligned with the proposed POMDP. As\na result, interesting insights have been obtained through the\nanalysis of the results.\n\nIn summary, the primary aim of this study is to utilize\npre-collected datasets to facilitate research in the field of\nautonomous driving with offline reinforcement learning. We\nexpect to accelerate progress in this domain and open up new\navenues for further exploration."
+          }
+        ],
+        "new_ids": [
+          "04976b3e7d391aac2e0b",
+          "1b0def9e0f37700ea600",
+          "801141df80ac94ac32ca"
+        ],
+        "search_ms": 61.5
+      }
+    ],
+    "retrieved_ids": [
+      "04976b3e7d391aac2e0b",
+      "1b0def9e0f37700ea600",
+      "801141df80ac94ac32ca"
+    ],
+    "context_ids": [
+      "04976b3e7d391aac2e0b",
+      "1b0def9e0f37700ea600",
+      "801141df80ac94ac32ca"
+    ],
+    "elapsed_ms": 7031.5,
+    "query_id": "u03",
+    "question": "Which GPU model and how many GPUs were used to train the models of the autonomous driving offline RL benchmark?",
+    "answerable": false,
+    "expected_answer": null,
+    "gold": null,
+    "usage_delta": {
+      "prompt_tokens": 2117,
+      "completion_tokens": 88,
+      "total_tokens": 2205,
+      "calls": 3
+    }
+  },
+  {
+    "status": "abstain",
+    "answer": "Không đủ bằng chứng để trả lời.",
+    "citations": [],
+    "events": [
+      {
+        "event": "search",
+        "tool": "search_hybrid",
+        "query": "tube-based stochastic MPC quadruped robot hardware validation experiment",
+        "top_k": 3,
+        "results": [
+          {
+            "id": "73d0d617dbbd09f4f8c4",
+            "source_id": "2104.10383v1",
+            "page": 1,
+            "score": 0.031498,
+            "text": "Abstract—This paper presents two stochastic model predictive\ncontrol methods for linear time-invariant systems subject to\nunbounded additive uncertainties. The new methods are developed by formulating the chance constraints into deterministic\nform, which are treated in analogy with robust constraints, by\nusing the probabilistic reachable set. Firstly, the probabilistically\nresolvable time-varying tube-based stochastic model predictive\ncontrol algorithm is designed by employing the time-varying\nprobabilistic reachable sets as the tubes. Secondly, by utilizing\nthe probabilistic positively invariant set, the probabilistically resolvable constant tube-based stochastic model predictive control\nalgorithm is developed by employing the constantly tightened\nconstraints in the entire prediction horizons. In addition, to\nenhance the feasibility of the algorithms, the soft constraints\nare imposed to the state initializations. The algorithm feasibility\nand closed-loop stability results are provided. The efficacy of the\napproaches are demonstrated by means of numerical simulations."
+          },
+          {
+            "id": "6ca6cb0f0884ae72e92d",
+            "source_id": "2104.10383v1",
+            "page": 1,
+            "score": 0.031099,
+            "text": "Index Terms—Tube-based stochastic MPC, uncertain system,\nmodel predictive control, chance constraints, constrained control."
+          },
+          {
+            "id": "c36f6965e1be2412fb2f",
+            "source_id": "2104.10383v1",
+            "page": 7,
+            "score": 0.016393,
+            "text": "Analogously, the initial tubes s0|t ⊕Z and s0|t ⊕λZ are\nshown as the small hexagons along the nominal trajectories\nin Fig. 3 and Fig. 4, respectively. Here, the tubes of the\npCTSMPC approach are constant over time. And the relevant\ntime instant tubes of the pCTSMPC-en approach are almost the\nsame as that of the pCTSMPC version, which means the slack\nvariable λ is enforced to tend towards 1 at all the simulation\ntime instants.\n\nFurthermore, in order to confirm the feasibility of the\nproposed probabilistic tube-based SMPC schemes, we conduct\nNs = 10000 simulations based on the same parameter setup.\nThe feasibility ratio is defined as the comparative value of the\n\n-0.5\n0.5\n1.5\n2\n2.5\n-0.5\n\n0.5\n\n1.5\n\n2\n\n2.5\n\npTTSMPC nominal trajectory\npTTSMPC actual trajectory\nterminal point\n\nFig. 2. Closed-loop state trajectories of the pTTSMPC-en.\n\n-0.5\n0.5\n1.5\n2\n2.5\n-0.5\n\n0.5\n\n1.5\n\n2\n\n2.5\n\npCTSMPC nominal trajectory\npCTSMPC actual trajectory\nterminal point\n\nFig. 3. Closed-loop state trajectories of the pCTSMPC.\n\n-0.5\n0.5\n1.5\n2\n2.5\n-0.5\n\n0.5\n\n1.5\n\n2\n\n2.5\n\npCTSMPC nominal trajectory\npCTSMPC actual trajectory\nterminal point\n\nFig. 4. Closed-loop state trajectories of the pCTSMPC-en."
+          }
+        ],
+        "new_ids": [
+          "73d0d617dbbd09f4f8c4",
+          "6ca6cb0f0884ae72e92d",
+          "c36f6965e1be2412fb2f"
+        ],
+        "search_ms": 101.7
+      },
+      {
+        "event": "search",
+        "tool": "search_hybrid",
+        "query": "real quadruped robot hardware experiment tube-based stochastic MPC validation ANYmal ANYmal-C",
+        "top_k": 3,
+        "results": [
+          {
+            "id": "73d0d617dbbd09f4f8c4",
+            "source_id": "2104.10383v1",
+            "page": 1,
+            "score": 0.031498,
+            "text": "Abstract—This paper presents two stochastic model predictive\ncontrol methods for linear time-invariant systems subject to\nunbounded additive uncertainties. The new methods are developed by formulating the chance constraints into deterministic\nform, which are treated in analogy with robust constraints, by\nusing the probabilistic reachable set. Firstly, the probabilistically\nresolvable time-varying tube-based stochastic model predictive\ncontrol algorithm is designed by employing the time-varying\nprobabilistic reachable sets as the tubes. Secondly, by utilizing\nthe probabilistic positively invariant set, the probabilistically resolvable constant tube-based stochastic model predictive control\nalgorithm is developed by employing the constantly tightened\nconstraints in the entire prediction horizons. In addition, to\nenhance the feasibility of the algorithms, the soft constraints\nare imposed to the state initializations. The algorithm feasibility\nand closed-loop stability results are provided. The efficacy of the\napproaches are demonstrated by means of numerical simulations."
+          },
+          {
+            "id": "9758915d257fe874d2a3",
+            "source_id": "2104.10383v1",
+            "page": 1,
+            "score": 0.03009,
+            "text": "first time instant [10]. Based on [10], the David Mayne’s tubebased MPC (DTMPC) [11] with flexible initialization method\nis presented to reduce the conservatism, where the nominal\nstate can be searched near the actual state within an invariant\nset. However, all the robust MPC frameworks do not utilize the\npossibly existing statistical properties of the uncertainty, albeit\nthe statistical information might be available in many cases and\nthe worst-case scenarios unlikely occur in practice. Therefore,\nrobust approaches may lead to overly conservatism [12]. By\nemploying chance constraints, the stochastic MPC (SMPC),\nwhich allows for an admissible level of constraint violation in a\nprobabilistic sense, exploits the stochastic properties of uncertainty to achieve less conservatism in constraints satisfaction\nand gain better control performance [13]."
+          },
+          {
+            "id": "6ca6cb0f0884ae72e92d",
+            "source_id": "2104.10383v1",
+            "page": 1,
+            "score": 0.016393,
+            "text": "Index Terms—Tube-based stochastic MPC, uncertain system,\nmodel predictive control, chance constraints, constrained control."
+          }
+        ],
+        "new_ids": [
+          "9758915d257fe874d2a3"
+        ],
+        "search_ms": 74.2
+      },
+      {
+        "event": "search_limit"
+      },
+      {
+        "event": "final_answer",
+        "enough_evidence": false,
+        "citations": [],
+        "valid": false,
+        "n_retrieved": 4
+      }
+    ],
+    "n_tool_calls": 2,
+    "searches": [
+      {
+        "event": "search",
+        "tool": "search_hybrid",
+        "query": "tube-based stochastic MPC quadruped robot hardware validation experiment",
+        "top_k": 3,
+        "results": [
+          {
+            "id": "73d0d617dbbd09f4f8c4",
+            "source_id": "2104.10383v1",
+            "page": 1,
+            "score": 0.031498,
+            "text": "Abstract—This paper presents two stochastic model predictive\ncontrol methods for linear time-invariant systems subject to\nunbounded additive uncertainties. The new methods are developed by formulating the chance constraints into deterministic\nform, which are treated in analogy with robust constraints, by\nusing the probabilistic reachable set. Firstly, the probabilistically\nresolvable time-varying tube-based stochastic model predictive\ncontrol algorithm is designed by employing the time-varying\nprobabilistic reachable sets as the tubes. Secondly, by utilizing\nthe probabilistic positively invariant set, the probabilistically resolvable constant tube-based stochastic model predictive control\nalgorithm is developed by employing the constantly tightened\nconstraints in the entire prediction horizons. In addition, to\nenhance the feasibility of the algorithms, the soft constraints\nare imposed to the state initializations. The algorithm feasibility\nand closed-loop stability results are provided. The efficacy of the\napproaches are demonstrated by means of numerical simulations."
+          },
+          {
+            "id": "6ca6cb0f0884ae72e92d",
+            "source_id": "2104.10383v1",
+            "page": 1,
+            "score": 0.031099,
+            "text": "Index Terms—Tube-based stochastic MPC, uncertain system,\nmodel predictive control, chance constraints, constrained control."
+          },
+          {
+            "id": "c36f6965e1be2412fb2f",
+            "source_id": "2104.10383v1",
+            "page": 7,
+            "score": 0.016393,
+            "text": "Analogously, the initial tubes s0|t ⊕Z and s0|t ⊕λZ are\nshown as the small hexagons along the nominal trajectories\nin Fig. 3 and Fig. 4, respectively. Here, the tubes of the\npCTSMPC approach are constant over time. And the relevant\ntime instant tubes of the pCTSMPC-en approach are almost the\nsame as that of the pCTSMPC version, which means the slack\nvariable λ is enforced to tend towards 1 at all the simulation\ntime instants.\n\nFurthermore, in order to confirm the feasibility of the\nproposed probabilistic tube-based SMPC schemes, we conduct\nNs = 10000 simulations based on the same parameter setup.\nThe feasibility ratio is defined as the comparative value of the\n\n-0.5\n0.5\n1.5\n2\n2.5\n-0.5\n\n0.5\n\n1.5\n\n2\n\n2.5\n\npTTSMPC nominal trajectory\npTTSMPC actual trajectory\nterminal point\n\nFig. 2. Closed-loop state trajectories of the pTTSMPC-en.\n\n-0.5\n0.5\n1.5\n2\n2.5\n-0.5\n\n0.5\n\n1.5\n\n2\n\n2.5\n\npCTSMPC nominal trajectory\npCTSMPC actual trajectory\nterminal point\n\nFig. 3. Closed-loop state trajectories of the pCTSMPC.\n\n-0.5\n0.5\n1.5\n2\n2.5\n-0.5\n\n0.5\n\n1.5\n\n2\n\n2.5\n\npCTSMPC nominal trajectory\npCTSMPC actual trajectory\nterminal point\n\nFig. 4. Closed-loop state trajectories of the pCTSMPC-en."
+          }
+        ],
+        "new_ids": [
+          "73d0d617dbbd09f4f8c4",
+          "6ca6cb0f0884ae72e92d",
+          "c36f6965e1be2412fb2f"
+        ],
+        "search_ms": 101.7
+      },
+      {
+        "event": "search",
+        "tool": "search_hybrid",
+        "query": "real quadruped robot hardware experiment tube-based stochastic MPC validation ANYmal ANYmal-C",
+        "top_k": 3,
+        "results": [
+          {
+            "id": "73d0d617dbbd09f4f8c4",
+            "source_id": "2104.10383v1",
+            "page": 1,
+            "score": 0.031498,
+            "text": "Abstract—This paper presents two stochastic model predictive\ncontrol methods for linear time-invariant systems subject to\nunbounded additive uncertainties. The new methods are developed by formulating the chance constraints into deterministic\nform, which are treated in analogy with robust constraints, by\nusing the probabilistic reachable set. Firstly, the probabilistically\nresolvable time-varying tube-based stochastic model predictive\ncontrol algorithm is designed by employing the time-varying\nprobabilistic reachable sets as the tubes. Secondly, by utilizing\nthe probabilistic positively invariant set, the probabilistically resolvable constant tube-based stochastic model predictive control\nalgorithm is developed by employing the constantly tightened\nconstraints in the entire prediction horizons. In addition, to\nenhance the feasibility of the algorithms, the soft constraints\nare imposed to the state initializations. The algorithm feasibility\nand closed-loop stability results are provided. The efficacy of the\napproaches are demonstrated by means of numerical simulations."
+          },
+          {
+            "id": "9758915d257fe874d2a3",
+            "source_id": "2104.10383v1",
+            "page": 1,
+            "score": 0.03009,
+            "text": "first time instant [10]. Based on [10], the David Mayne’s tubebased MPC (DTMPC) [11] with flexible initialization method\nis presented to reduce the conservatism, where the nominal\nstate can be searched near the actual state within an invariant\nset. However, all the robust MPC frameworks do not utilize the\npossibly existing statistical properties of the uncertainty, albeit\nthe statistical information might be available in many cases and\nthe worst-case scenarios unlikely occur in practice. Therefore,\nrobust approaches may lead to overly conservatism [12]. By\nemploying chance constraints, the stochastic MPC (SMPC),\nwhich allows for an admissible level of constraint violation in a\nprobabilistic sense, exploits the stochastic properties of uncertainty to achieve less conservatism in constraints satisfaction\nand gain better control performance [13]."
+          },
+          {
+            "id": "6ca6cb0f0884ae72e92d",
+            "source_id": "2104.10383v1",
+            "page": 1,
+            "score": 0.016393,
+            "text": "Index Terms—Tube-based stochastic MPC, uncertain system,\nmodel predictive control, chance constraints, constrained control."
+          }
+        ],
+        "new_ids": [
+          "9758915d257fe874d2a3"
+        ],
+        "search_ms": 74.2
+      }
+    ],
+    "retrieved_ids": [
+      "6ca6cb0f0884ae72e92d",
+      "73d0d617dbbd09f4f8c4",
+      "9758915d257fe874d2a3",
+      "c36f6965e1be2412fb2f"
+    ],
+    "context_ids": [
+      "73d0d617dbbd09f4f8c4",
+      "6ca6cb0f0884ae72e92d",
+      "c36f6965e1be2412fb2f",
+      "9758915d257fe874d2a3"
+    ],
+    "elapsed_ms": 23872.9,
+    "query_id": "u04",
+    "question": "On which real quadruped robot hardware was the tube-based stochastic MPC controller validated in experiments?",
+    "answerable": false,
+    "expected_answer": null,
+    "gold": null,
+    "usage_delta": {
+      "prompt_tokens": 3744,
+      "completion_tokens": 98,
+      "total_tokens": 3842,
+      "calls": 4
+    }
+  }
+]
