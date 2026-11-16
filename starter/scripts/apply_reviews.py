@@ -54,6 +54,33 @@ LABELS = {
         "u01": (None, [False], False),  # answered an unanswerable question (hallucinated theorem)
         "u02": (None, [], True),
     },
+    # ---- test split ----
+    "dense800-test": {
+        "q16": (2, [True], None), "q17": (2, [True], None), "q18": (0, [], None),
+        "q19": (None, [], None),  # provider error (ConnectTimeout); excluded from quality metrics
+        "q20": (0, [], None),
+        "u03": (None, [], True), "u04": (None, [], True),
+    },
+    "hybrid3500-test": {
+        "q16": (2, [True, True], None), "q17": (2, [True], None),
+        "q18": (1, [True, True, False], None), "q19": (1, [True, False, True], None),
+        "q20": (2, [True, True], None),
+        "u03": (None, [], True), "u04": (None, [], True),
+    },
+    "hybrid3500-large-low-test": {
+        "q16": (2, [True, True], None), "q17": (2, [True], None),
+        "q18": (1, [True, True], None), "q19": (0, [], None), "q20": (2, [True, True], None),
+        "u03": (None, [], True), "u04": (None, [], True),
+    },
+    "hybrid3500-large-low-dev": {
+        "q01": (2, [True], None), "q02": (2, [True, True], None), "q03": (2, [True], None),
+        "q04": (2, [True, True, True, True], None), "q05": (2, [False, True, True], None),
+        "q06": (2, [True, True], None), "q07": (2, [True], None), "q08": (2, [True, True], None),
+        "q09": (0, [], None), "q10": (2, [True, False, True], None),
+        "q11": (2, [True, True], None), "q12": (2, [True, True, True], None),
+        "q13": (2, [True], None), "q14": (2, [True, False], None), "q15": (2, [True], None),
+        "u01": (None, [], True), "u02": (None, [], True),
+    },
     "alltools-medium-dev": {
         "q01": (2, [True], None), "q02": (2, [True, True], None), "q03": (0, [], None),
         "q04": (2, [True, True], None), "q05": (2, [False, True, True], None),

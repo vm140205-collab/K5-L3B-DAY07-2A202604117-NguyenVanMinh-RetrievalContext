@@ -128,30 +128,50 @@ class MistralClient:
     """Thin wrapper over the Mistral chat completions API with tool calling."""
 
     def __init__(self, model: str = "mistral-small-latest", api_key: str | None = None,
-                 temperature: float = 0.0):
+                 temperature: float = 0.0, reasoning_effort: str | None = None):
         self.model = model
         self.api_key = api_key or os.environ.get("MISTRAL_API_KEY")
         if not self.api_key:
             raise RuntimeError("MISTRAL_API_KEY missing; put it in .env at the repo root")
         self.temperature = temperature
+        # Thinking level: only some models accept reasoning_effort
+        # (large: low/medium/high, medium: high, small: none, magistral: none/high);
+        # validated empirically, see starter/scripts/probe_thinking.py.
+        self.reasoning_effort = reasoning_effort
         self.usage = {"prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0,
                       "calls": 0}
 
     def chat(self, messages: list[dict[str, Any]], tools: list[dict[str, Any]],
              response_format: dict[str, Any] | None = None) -> dict[str, Any]:
         payload = {"model": self.model, "messages": messages, "temperature": self.temperature}
+        if self.reasoning_effort:
+            payload["reasoning_effort"] = self.reasoning_effort
+        if self.temperature == 0.0:
+            payload["top_p"] = 1  # reasoning models require greedy sampling
         if tools:
             payload["tools"] = tools
             payload["tool_choice"] = "auto"
         if response_format:
             payload["response_format"] = response_format
-        response = requests.post(
-            MISTRAL_URL, headers={"Authorization": f"Bearer {self.api_key}",
-                                  "Content-Type": "application/json"},
-            json=payload, timeout=120)
-        if response.status_code != 200:
-            raise RuntimeError(f"Mistral API error {response.status_code}: "
-                               f"{response.text[:300]}")
+        response = None
+        for attempt in range(3):  # transient network/HTTP errors get a retry
+            try:
+                response = requests.post(
+                    MISTRAL_URL, headers={"Authorization": f"Bearer {self.api_key}",
+                                          "Content-Type": "application/json"},
+                    json=payload, timeout=120)
+                if response.status_code in (429, 500, 502, 503, 504) and attempt < 2:
+                    time.sleep(5 * (attempt + 1))
+                    continue
+                break
+            except requests.RequestException:
+                if attempt == 2:
+                    raise
+                time.sleep(5 * (attempt + 1))
+        if response is None or response.status_code != 200:
+            raise RuntimeError(f"Mistral API error "
+                               f"{response.status_code if response is not None else 'no response'}: "
+                               f"{response.text[:300] if response is not None else ''}")
         data = response.json()
         usage = data.get("usage", {})
         self.usage["prompt_tokens"] += usage.get("prompt_tokens", 0)
@@ -276,7 +296,7 @@ class Agent:
         ]
         data = self.client.chat_structured(final_messages)
         try:
-            parsed = json.loads(data["choices"][0]["message"]["content"])
+            parsed = json.loads(content_text(data["choices"][0]["message"]["content"]))
         except (json.JSONDecodeError, KeyError, TypeError):
             parsed = {"enough_evidence": False, "answer": "", "citations": [],
                       "parse_error": True}

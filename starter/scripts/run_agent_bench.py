@@ -39,6 +39,8 @@ def main() -> None:
     parser.add_argument("--config", required=True, choices=sorted(CONFIGS))
     parser.add_argument("--split", required=True, choices=("dev", "test"))
     parser.add_argument("--model", default="mistral-small-latest")
+    parser.add_argument("--reasoning-effort", default=None,
+                        choices=("none", "low", "medium", "high"))
     parser.add_argument("--output", required=True, type=Path)
     args = parser.parse_args()
     cfg = CONFIGS[args.config]
@@ -56,7 +58,7 @@ def main() -> None:
         "search_hybrid": HybridRrfRetriever(DenseRetriever(store, embedder),
                                             Bm25Retriever(chunks)),
     }
-    client = MistralClient(model=args.model)
+    client = MistralClient(model=args.model, reasoning_effort=args.reasoning_effort)
     agent = Agent(client, retrievers, cfg["tools"], top_k=cfg["top_k"],
                   budget=cfg["budget"], max_tool_calls=cfg["max_tool_calls"],
                   max_turns=cfg["max_turns"])
@@ -87,6 +89,7 @@ def main() -> None:
     cost = client.cost_usd()
     summary = {
         "config": args.config, "split": args.split, "model": args.model,
+        "reasoning_effort": args.reasoning_effort,
         "cfg": cfg, "n": len(traces),
         "status_counts": {s: sum(1 for t in traces if t["status"] == s)
                           for s in ("answered", "abstain", "error")},

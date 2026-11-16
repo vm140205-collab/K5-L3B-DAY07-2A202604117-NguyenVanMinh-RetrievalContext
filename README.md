@@ -1,5 +1,26 @@
 # Day 7 — Agentic RAG
 
+## Bài làm: Nguyễn Văn Minh · 2A202604117 · L3B
+
+**Báo cáo đầy đủ:** [report/individual/2A202604117_NguyenVanMinh.md](report/individual/2A202604117_NguyenVanMinh.md)
+
+Tái dùng nguyên kho Day 6 (14 preprint arXiv, 264 trang, CC BY 4.0; 949 chunk chiến lược C trong Qdrant embedded; embedding `BAAI/bge-small-en-v1.5` 384 chiều, local ONNX, 0 USD). Agent dùng Mistral API với tool calling (dense / BM25 / hybrid-RRF) và phase trả lời **structured output** (`json_schema` strict) ép citation dạng `{enough_evidence, answer, citations[]}`; citation phải là chunk đã thực sự gửi tới model.
+
+Benchmark 24 câu: dev 15 có đáp án + 2 thiếu bằng chứng; test 5 + 2 (4 câu thiếu bằng chứng viết mới, kiểm chứng vắng mặt bằng scan toàn corpus + đọc top-10 retrieval; cách kiểm tra ghi trong `verification` của từng câu).
+
+| Cấu hình (dev, 15 câu có đáp án) | Grounded /2 | Abstention | Từ chối nhầm | Chi phí/run |
+|---|---|---|---|---|
+| Baseline dense800 (budget 800) | 0.80 | 2/2 | 7/15 | $0.0035 |
+| hybrid3500 (budget 3500) | 1.67 | 2/2 | 0/15 | $0.0054 |
+| alltools (3 tool, top-5) | 1.60 | 2/2 | 1/15 | $0.0083 |
+| hybrid3500 + medium | 1.73 | **1/2** (bịa u01) | 1/15 | $0.026 |
+| alltools + medium | 1.73 | 2/2 | 2/15 | $0.038 |
+| **hybrid3500 + large + thinking=low (chọn)** | **1.87** | 2/2 | 1/15 | $0.134 |
+
+Test (chốt cấu hình trên dev, không chỉnh sau khi xem test): cấu hình chọn grounded 1.40 (5/5 câu có context đủ evidence + nguồn, citation 7/7 hợp lệ, abstention 2/2); baseline 1.00. Chi tiết, trace, nhãn và phân tích lỗi trong báo cáo.
+
+---
+
 **Bài cá nhân · Python 3.11+ · tiếp nối Day 6**
 
 Dùng embedding và vector store từ Day 6 để xây một agent biết tìm bằng chứng, trả lời có nguồn và nhận biết khi không đủ thông tin. Bạn tự chọn kiến trúc, số tool và cách tổ chức retrieval.
