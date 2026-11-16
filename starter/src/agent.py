@@ -27,7 +27,12 @@ from dotenv import load_dotenv
 REPO_ROOT = Path(__file__).resolve().parents[2]
 load_dotenv(REPO_ROOT / ".env")
 
-MISTRAL_URL = "https://api.mistral.ai/v1/chat/completions"
+# Provider-agnostic OpenAI-compatible endpoint: LLM_BASE_URL / LLM_API_KEY /
+# LLM_MODEL in .env can point at any compatible provider; Mistral is the
+# default and MISTRAL_API_KEY is accepted as a fallback for compatibility.
+LLM_BASE_URL = os.environ.get("LLM_BASE_URL", "https://api.mistral.ai/v1").rstrip("/")
+LLM_API_KEY = os.environ.get("LLM_API_KEY") or os.environ.get("MISTRAL_API_KEY")
+DEFAULT_MODEL = os.environ.get("LLM_MODEL", "mistral-small-latest")
 # Published list price used for cost estimates (USD per 1M tokens); recorded in
 # the report next to raw token counts so the estimate can be re-scaled.
 PRICES_PER_MTOK = {
@@ -130,9 +135,10 @@ class MistralClient:
     def __init__(self, model: str = "mistral-small-latest", api_key: str | None = None,
                  temperature: float = 0.0, reasoning_effort: str | None = None):
         self.model = model
-        self.api_key = api_key or os.environ.get("MISTRAL_API_KEY")
+        self.api_key = api_key or LLM_API_KEY
+        self.base_url = LLM_BASE_URL
         if not self.api_key:
-            raise RuntimeError("MISTRAL_API_KEY missing; put it in .env at the repo root")
+            raise RuntimeError("LLM_API_KEY missing; put it in .env at the repo root")
         self.temperature = temperature
         # Thinking level: only some models accept reasoning_effort
         # (large: low/medium/high, medium: high, small: none, magistral: none/high);
@@ -157,9 +163,10 @@ class MistralClient:
         for attempt in range(3):  # transient network/HTTP errors get a retry
             try:
                 response = requests.post(
-                    MISTRAL_URL, headers={"Authorization": f"Bearer {self.api_key}",
-                                          "Content-Type": "application/json"},
-                    json=payload, timeout=120)
+                    f"{self.base_url}/chat/completions",
+                    headers={"Authorization": f"Bearer {self.api_key}",
+                             "Content-Type": "application/json"},
+                    json=payload, timeout=300)
                 if response.status_code in (429, 500, 502, 503, 504) and attempt < 2:
                     time.sleep(5 * (attempt + 1))
                     continue
@@ -189,8 +196,10 @@ class MistralClient:
             "json_schema": {"schema": FINAL_SCHEMA, "name": "final_answer", "strict": True},
         })
 
-    def cost_usd(self) -> float:
-        price = PRICES_PER_MTOK.get(self.model, {"input": 0.10, "output": 0.30})
+    def cost_usd(self) -> float | None:
+        price = PRICES_PER_MTOK.get(self.model)
+        if price is None:
+            return None  # never guess a price; raw tokens are in every trace
         return (self.usage["prompt_tokens"] * price["input"]
                 + self.usage["completion_tokens"] * price["output"]) / 1_000_000
 

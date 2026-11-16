@@ -63,8 +63,24 @@ def main() -> None:
                   budget=cfg["budget"], max_tool_calls=cfg["max_tool_calls"],
                   max_turns=cfg["max_turns"])
 
-    traces, cases = [], []
+    # Idempotent resume: if the output dir already has a partial traces.jsonl
+    # (e.g. a previous run was aborted mid-way), reuse those results and only
+    # run the questions that are missing. Delete traces.jsonl to force a full
+    # rerun.
+    traces: list[dict] = []
+    done_ids: set[str] = set()
+    prior = args.output / "traces.jsonl"
+    if prior.exists():
+        traces = [json.loads(l) for l in prior.read_text(encoding="utf-8").splitlines()]
+        done_ids = {t["query_id"] for t in traces}
+        print(f"resume: {len(done_ids)} questions already in {prior}; "
+              f"running the remaining {sum(1 for q in selected if q['id'] not in done_ids)}")
+
+    cases = []
     for q in selected:
+        if q["id"] in done_ids:
+            cases.append({"id": q["id"], "split": q["split"], "answerable": q["answerable"]})
+            continue
         before = dict(client.usage)
         try:
             result = agent.run(q["question"])
@@ -93,7 +109,8 @@ def main() -> None:
         "cfg": cfg, "n": len(traces),
         "status_counts": {s: sum(1 for t in traces if t["status"] == s)
                           for s in ("answered", "abstain", "error")},
-        "usage": dict(client.usage), "cost_usd": round(cost, 6),
+        "usage": dict(client.usage),
+        "cost_usd": round(cost, 6) if cost is not None else None,
     }
     args.output.mkdir(parents=True, exist_ok=True)
     (args.output / "traces.jsonl").write_text(
