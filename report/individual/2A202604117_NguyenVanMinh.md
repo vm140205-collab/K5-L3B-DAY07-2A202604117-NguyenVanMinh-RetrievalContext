@@ -49,9 +49,13 @@ Lỗi phụ (phân tích, không sửa bằng cấu hình): q09 model đọc b�
 | hybrid3500 + medium / dev | 17/17 | 1–2 | 2/0/13 → **1.73** | 19/25 | 15/15 | **1/2** (bịa u01) | 1/15 |
 | alltools + medium / dev | 17/17 | 1–4 | 2/0/13 → **1.73** | 21/26 | 13/13 | 2/2 | 2/15 |
 | hybrid3500 + large + thinking=low (cải thiện 3, **chọn**) / dev | 17/17 | 1–2 | 1/0/14 → **1.87** | 25/28 | 14/14 | 2/2 | 1/15 |
+| hybrid3500 + deepseek + thinking=high / dev | 17/17 | 1–2 | 3/0/12 → **1.60** | **23/23** | 12/12 | 2/2 | 3/15 |
+| alltools + deepseek + thinking=high / dev | 17/17 | 1–4 | 2/0/13 → **1.73** | **24/24** | 13/13 | 2/2 | 2/15 |
 | dense800 (baseline) / test | 7/7 | 1–2 | 2/0/2 → **1.00** (N=4, 1 provider error) | 2/2 | 2/2 | 2/2 | 2/4 |
 | hybrid3500 + large + thinking=low (**chọn**) / test | 7/7 | 1–2 | 1/1/3 → **1.40** | 7/7 | 4/4 | 2/2 | 1/5 |
 | hybrid3500 + small (tham chiếu) / test | 7/7 | 1–2 | 0/2/3 → **1.60** | 9/11 | 5/5 | 2/2 | 0/5 |
+
+**Thử nghiệm thêm: provider khác (DeepSeek qua endpoint Mistral).** Vì client chỉ phụ thuộc giao thức OpenAI-compatible (`LLM_BASE_URL`/`LLM_API_KEY`/`LLM_MODEL`), chạy thêm `deepseek-v4-1-flash-1017` trên cùng cấu hình. Các mức thinking được đo trước bằng `probe_effort_latency.py` trên một câu cố định: `none` 0.7s/0 reasoning token, `low` 1.2s/184, `high` 1.9s/430, `xhigh` 10.1s/4000 (đốt hết `max_tokens` vào reasoning, không trả lời → loại). Đo này phủ định giả thuyết "model chậm": các `ReadTimeout` gặp phải là do mạng, không phải do model. Kết quả dev: `hybrid3500` 1.60 (citation **23/23**) và `alltools` **1.73** (citation **24/24**). Đặc điểm rõ rệt: **precision tuyệt đối, recall thấp** — 13/13 câu trả lời đều đúng hoàn toàn, mọi citation đều hỗ trợ câu trả lời, nhưng từ chối nhầm 2/15 (q03, q09). Nhanh hơn hẳn: median 3.8s/câu so với 14.1s của `mistral-large-latest` + thinking và 7.7s của `mistral-small`. Giá của model này qua endpoint hiện tại không có trong bảng giá đã biết nên **không ước tính chi phí** (`cost_usd: null`); token thô được lưu trong từng trace (51.045 in / 8.960 out cho 17 câu) để quy đổi khi có bảng giá. Không đổi cấu hình đã chốt cho test: `large + thinking=low` vẫn cao hơn về grounded mean (1.87 so với 1.73) và test đã chạy sau khi chốt.
 
 **Context 0/1/2 trên test có đáp án** (baseline và cấu hình chọn, `starter/scripts/grade_context.py` + đọc lại tay): baseline `dense800`: 2 câu mức 2, 2 câu mức 0, 1 câu lỗi provider (không có context) — context hỏng vì budget 800. Cấu hình chọn: **5/5 câu mức 2** (đủ evidence + nguồn trong context cuối). Đáng chú ý: q19 test có evidence đầy đủ trong context nhưng model vẫn tự từ chối (false abstention) — lỗi "quá thận trọng" của phase structured, không phải lỗi retrieval.
 

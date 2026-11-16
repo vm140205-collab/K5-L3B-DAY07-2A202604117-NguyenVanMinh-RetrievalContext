@@ -72,8 +72,10 @@ def main() -> None:
     prior = args.output / "traces.jsonl"
     if prior.exists():
         traces = [json.loads(l) for l in prior.read_text(encoding="utf-8").splitlines()]
+        # Only completed answers are reused; provider errors are retried.
+        traces = [t for t in traces if t.get("status") != "error"]
         done_ids = {t["query_id"] for t in traces}
-        print(f"resume: {len(done_ids)} questions already in {prior}; "
+        print(f"resume: {len(done_ids)} completed questions reused from {prior}; "
               f"running the remaining {sum(1 for q in selected if q['id'] not in done_ids)}")
 
     cases = []

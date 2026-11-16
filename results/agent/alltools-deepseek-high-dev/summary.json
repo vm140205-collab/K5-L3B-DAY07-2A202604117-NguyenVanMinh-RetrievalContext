@@ -1,0 +1,30 @@
+{
+  "config": "alltools",
+  "split": "dev",
+  "model": "deepseek-v4-1-flash-1017",
+  "reasoning_effort": "high",
+  "cfg": {
+    "tools": [
+      "search_dense",
+      "search_bm25",
+      "search_hybrid"
+    ],
+    "top_k": 5,
+    "budget": 3500,
+    "max_tool_calls": 4,
+    "max_turns": 10
+  },
+  "n": 17,
+  "status_counts": {
+    "answered": 13,
+    "abstain": 4,
+    "error": 0
+  },
+  "usage": {
+    "prompt_tokens": 3715,
+    "completion_tokens": 533,
+    "total_tokens": 4248,
+    "calls": 3
+  },
+  "cost_usd": null
+}

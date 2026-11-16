@@ -81,6 +81,28 @@ LABELS = {
         "q13": (2, [True], None), "q14": (2, [True, False], None), "q15": (2, [True], None),
         "u01": (None, [], True), "u02": (None, [], True),
     },
+    "hybrid3500-deepseek-high-dev": {
+        # 12 answered, all correct and complete; 3 false abstentions (q03, q07, q09).
+        "q01": (2, [True], None), "q02": (2, [True, True], None), "q03": (0, [], None),
+        "q04": (2, [True, True, True], None), "q05": (2, [True, True, True], None),
+        "q06": (2, [True], None), "q07": (0, [], None), "q08": (2, [True, True], None),
+        "q09": (0, [], None), "q10": (2, [True, True, True, True], None),
+        "q11": (2, [True], None), "q12": (2, [True, True], None),
+        "q13": (2, [True], None), "q14": (2, [True], None), "q15": (2, [True, True], None),
+        "u01": (None, [], True), "u02": (None, [], True),
+    },
+    "alltools-deepseek-high-dev": {
+        # 13 answered, all correct and complete; 2 false abstentions (q03, q09).
+        "q01": (2, [True], None), "q02": (2, [True, True], None), "q03": (0, [], None),
+        "q04": (2, [True, True], None), "q05": (2, [True, True, True], None),
+        "q06": (2, [True, True], None), "q07": (2, [True], None),
+        "q08": (2, [True, True], None),
+        "q09": (0, [], None), "q10": (2, [True, True, True, True], None),
+        "q11": (2, [True, True], None), "q12": (2, [True], None),
+        "q13": (2, [True], None), "q14": (2, [True, True], None),
+        "q15": (2, [True], None),
+        "u01": (None, [], True), "u02": (None, [], True),
+    },
     "alltools-medium-dev": {
         "q01": (2, [True], None), "q02": (2, [True, True], None), "q03": (0, [], None),
         "q04": (2, [True, True], None), "q05": (2, [False, True, True], None),

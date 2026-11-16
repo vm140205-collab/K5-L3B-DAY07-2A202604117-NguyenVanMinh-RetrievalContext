@@ -43,6 +43,8 @@ expected = {
     "hybrid3500-medium-dev": (1.733, "1/2", "1/15", "19/25"),
     "alltools-medium-dev": (1.733, "2/2", "2/15", "21/26"),
     "hybrid3500-large-low-dev": (1.867, "2/2", "1/15", "25/28"),
+    "hybrid3500-deepseek-high-dev": (1.60, "2/2", "3/15", "23/23"),
+    "alltools-deepseek-high-dev": (1.733, "2/2", "2/15", "24/24"),
     "dense800-test": (1.00, "2/2", "2/4", "2/2"),
     "hybrid3500-large-low-test": (1.40, "2/2", "1/5", "7/7"),
     "hybrid3500-test": (1.60, "2/2", "0/5", "9/11"),
